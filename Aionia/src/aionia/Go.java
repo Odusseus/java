@@ -1,11 +1,17 @@
 package aionia;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 public class Go {
 
 	public static void main(String[] args) {
-		Say say = new Say();
+		//ISay say = new Say();
+		//say.Hello();
 		
-		say.Hello();
+		Injector injector = Guice.createInjector(new AioniaModuleFR());
+		
+		Base base = injector.getInstance(Base.class);
 	}
 
 }
