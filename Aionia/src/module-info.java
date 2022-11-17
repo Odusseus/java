@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author pboittin
- *
- */
-module Aionia {
-}
