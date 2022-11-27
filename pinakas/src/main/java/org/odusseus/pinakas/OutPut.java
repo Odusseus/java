@@ -1,6 +1,6 @@
-package odusseus.pinakas.org;
+package org.odusseus.pinakas;
 
-public class OutPut implements IOutPut {
+public class OutPut implements OutPutInterface {
 	
 	//@Override
 	public void WriteCrossTable() {
