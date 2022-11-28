@@ -7,7 +7,7 @@ public class Go {
 
 	public static void main(String[] args) {
 		
-		Injector injector = Guice.createInjector(new PinakasModule());
+		Injector injector = Guice.createInjector(new BaseModule());
 		
 		Base base = injector.getInstance(Base.class);
 		

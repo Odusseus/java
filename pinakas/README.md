@@ -1,0 +1,1 @@
+[Advanced dependency injection with Guice](https://www.beust.com/weblog/advanced-dependency-injection-with-guice/)

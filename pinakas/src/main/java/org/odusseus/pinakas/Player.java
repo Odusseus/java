@@ -1,9 +1,15 @@
 package org.odusseus.pinakas;
 
+import com.google.inject.Inject;
+
 public class Player implements PlayerInterface {
 	
 	private int number;
 	private String name;
+	
+	@Inject
+	public Player() {
+	}
 	
 	@Override
 	public int getNumber() {

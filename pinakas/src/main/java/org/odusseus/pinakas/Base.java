@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Spliterator;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 public class Base {
 	
