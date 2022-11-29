@@ -1,0 +1,52 @@
+package org.odusseus.pinakas;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Provider;
+
+public class Rounds implements RoundsInterface  {
+	
+	int numberOfRounds;
+	List<RoundInterface> list;
+	private Provider<RoundInterface> roundProvider;
+	
+    @Inject
+    public Rounds(
+    		Provider<RoundInterface> roundProvider
+    		)
+	{
+		this.list = new ArrayList<RoundInterface>();	
+		this.roundProvider = roundProvider;
+	}
+	
+	@Override
+	public RoundInterface Add()
+	{
+		RoundInterface round = this.roundProvider.get();
+		round.setNumber(this.list.size() + 1);
+				
+		list.add(round);
+		return round;
+	}
+	
+	public List<RoundInterface> getRounds() {
+		return this.list;		
+	}
+	
+	@Override
+	public void setNumberOf(int numberOf)
+	{
+		this.numberOfRounds = numberOf;
+	}
+	
+	@Override
+	public int getNumberOf()
+	{
+		return this.numberOfRounds;
+	}
+
+}

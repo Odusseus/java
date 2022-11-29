@@ -32,8 +32,23 @@ public class Players implements PlayersInterface  {
 		list.add(player);
 	}
 	
+	@Override
 	public List<PlayerInterface> getPlayers() {
 		return this.list;		
 	}
-
+	
+	@Override
+	public List<Integer> getListOfNumber(){
+		List<Integer> returnList = new ArrayList<Integer>();
+		Iterable<PlayerInterface> iterable = this.list;
+		
+		for (PlayerInterface player : iterable) {
+		   returnList.add(player.getNumber());
+		}
+		
+		return returnList;
+		
+		
+	}
+	
 }

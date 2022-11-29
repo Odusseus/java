@@ -8,4 +8,6 @@ public interface PlayersInterface {
 	
 	List<PlayerInterface> getPlayers();
 
+	List<Integer> getListOfNumber();
+
 }

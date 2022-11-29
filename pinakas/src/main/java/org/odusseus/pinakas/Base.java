@@ -13,15 +13,18 @@ public class Base {
 	private OutPutInterface output;
 	private PropertiesWrapperInterface properties;
 	private PlayersInterface players;
+	private RoundsInterface rounds;
+	private ParingsInterface parings;
 	
 	@Inject
-	public Base(OutPutInterface output, PropertiesWrapper properties, PlayersInterface players) {
+	public Base(OutPutInterface output, PropertiesWrapper properties, PlayersInterface players,
+			    RoundsInterface rounds, ParingsInterface parings) {
 		this.output = output;
 		this.properties = properties;
 		this.players = players;
-		
-		//this.output.WriteCrossTable();		
-		//System.out.println(this.properties.getProperty("names"));
+		this.rounds = rounds;
+		this.parings = parings;
+
 	}
 	
 	public void Initialize () 
@@ -30,8 +33,12 @@ public class Base {
 		List<String> nameList = Arrays.asList(names.split("\\s*,\\s*"));
 		
 		for (Iterator<String> iterator = nameList.iterator(); iterator.hasNext();) {
-			players.Add(iterator.next());
+			this.players.Add(iterator.next());
 		}
+		
+		int numberOf = players.getPlayers().size();
+		if (numberOf % 2 != 0) numberOf ++;
+		this.rounds.setNumberOf(numberOf);
 		
 		for (int i = 0; i < players.getPlayers().size(); i++) {
 			
@@ -39,6 +46,14 @@ public class Base {
 			
 			System.out.println(String.format("Name: %d %s", player.getNumber(), player.getName()));		
 		}
+		
+		List<Integer> players = this.players.getListOfNumber();
+
+		for (int i = 0; i < this.rounds.getNumberOf(); i++) {
+			RoundInterface round = this.rounds.Add();
+			
+		}
+		
 	}
 	
 
