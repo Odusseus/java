@@ -10,12 +10,10 @@ public class Round implements RoundInterface {
 	public Round() {
 	}
 	
-	@Override
 	public int getNumber() {
 		return this.number;		
 	}
 	
-	@Override
 	public void setNumber(int number) {
 		this.number = number;		
 	}

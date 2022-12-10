@@ -23,7 +23,6 @@ public class Rounds implements RoundsInterface  {
 		this.roundProvider = roundProvider;
 	}
 	
-	@Override
 	public RoundInterface Add()
 	{
 		RoundInterface round = this.roundProvider.get();
@@ -37,13 +36,11 @@ public class Rounds implements RoundsInterface  {
 		return this.list;		
 	}
 	
-	@Override
 	public void setNumberOf(int numberOf)
 	{
 		this.numberOfRounds = numberOf;
 	}
 	
-	@Override
 	public int getNumberOf()
 	{
 		return this.numberOfRounds;

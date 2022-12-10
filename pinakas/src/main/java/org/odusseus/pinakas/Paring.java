@@ -12,7 +12,6 @@ public class Paring implements ParingInterface {
 	public Paring() {
 	}
 	
-	@Override
 	public int getRoundnumber() {
 		return this.roundnumber;		
 	}

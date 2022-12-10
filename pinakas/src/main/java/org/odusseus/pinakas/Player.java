@@ -11,22 +11,18 @@ public class Player implements PlayerInterface {
 	public Player() {
 	}
 	
-	@Override
 	public int getNumber() {
 		return this.number;		
 	}
 	
-	@Override
 	public String getName() {
 		return this.name;		
 	}
 	
-	@Override
 	public void setNumber(int number) {
 		this.number = number;		
 	}
 	
-	@Override
 	public void setName(String name) {
 		this.name = name;		
 	}
