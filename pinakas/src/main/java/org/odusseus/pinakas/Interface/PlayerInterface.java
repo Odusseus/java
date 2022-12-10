@@ -8,6 +8,6 @@ public interface PlayerInterface {
 
 	void setNumber(int number);
 
-	void setName(String name);
+	void setName(String name);	
 
 }

@@ -58,9 +58,11 @@ public class Players implements PlayersInterface  {
 		   returnList.add(player.getNumber());
 		}
 		
-		return returnList;
-		
-		
+		return returnList;		
+	}
+	
+	public int getFieldLenght() {
+		return this.FieldLenght;		
 	}
 	
 }

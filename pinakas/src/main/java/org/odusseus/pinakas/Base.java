@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Spliterator;
 import java.lang.String;
 
+import org.odusseus.pinakas.Implementation.OutPut;
 import org.odusseus.pinakas.Implementation.PropertiesWrapper;
 import org.odusseus.pinakas.Interface.OutPutInterface;
 import org.odusseus.pinakas.Interface.ParingsInterface;
@@ -63,12 +64,10 @@ public class Base {
 			RoundInterface round = this.rounds.Add();
 			
 		}
-		
-		public  void WriteCrossTable() {
-		
-		}
-		
 	}
-	
-
+		
+	public  void WriteCrossTable() {
+		this.output.WriteCrossTable( this.players, this.rounds);
+		
+	  }
 }

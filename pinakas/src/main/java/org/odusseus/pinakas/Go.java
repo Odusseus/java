@@ -12,6 +12,8 @@ public class Go {
 		Base base = injector.getInstance(Base.class);
 		
 		base.Initialize();
+		
+		base.WriteCrossTable();
 	}
 
 }
