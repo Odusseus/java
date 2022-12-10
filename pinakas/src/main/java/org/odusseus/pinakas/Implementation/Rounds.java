@@ -1,7 +1,10 @@
-package org.odusseus.pinakas;
+package org.odusseus.pinakas.Implementation;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.odusseus.pinakas.Interface.RoundInterface;
+import org.odusseus.pinakas.Interface.RoundsInterface;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;

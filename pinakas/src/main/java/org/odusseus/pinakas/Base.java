@@ -4,6 +4,16 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Spliterator;
+import java.lang.String;
+
+import org.odusseus.pinakas.Implementation.PropertiesWrapper;
+import org.odusseus.pinakas.Interface.OutPutInterface;
+import org.odusseus.pinakas.Interface.ParingsInterface;
+import org.odusseus.pinakas.Interface.PlayerInterface;
+import org.odusseus.pinakas.Interface.PlayersInterface;
+import org.odusseus.pinakas.Interface.PropertiesWrapperInterface;
+import org.odusseus.pinakas.Interface.RoundInterface;
+import org.odusseus.pinakas.Interface.RoundsInterface;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -33,7 +43,7 @@ public class Base {
 		List<String> nameList = Arrays.asList(names.split("\\s*,\\s*"));
 		
 		for (Iterator<String> iterator = nameList.iterator(); iterator.hasNext();) {
-			this.players.Add(iterator.next());
+			this.players.Add( (iterator.next()).strip());
 		}
 		
 		int numberOf = players.getPlayers().size();
@@ -52,6 +62,10 @@ public class Base {
 		for (int i = 0; i < this.rounds.getNumberOf(); i++) {
 			RoundInterface round = this.rounds.Add();
 			
+		}
+		
+		public  void WriteCrossTable() {
+		
 		}
 		
 	}

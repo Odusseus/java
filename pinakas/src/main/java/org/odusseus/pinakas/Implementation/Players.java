@@ -1,7 +1,10 @@
-package org.odusseus.pinakas;
+package org.odusseus.pinakas.Implementation;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.odusseus.pinakas.Interface.PlayerInterface;
+import org.odusseus.pinakas.Interface.PlayersInterface;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -10,8 +13,10 @@ import com.google.inject.Provider;
 
 public class Players implements PlayersInterface  {
 	
-	List<PlayerInterface> list;
+	private List<PlayerInterface> list;
 	private Provider<PlayerInterface> playerProvider;
+	private int NameLenght;
+	private int FieldLenght;
 	
     @Inject
     public Players(
@@ -30,6 +35,13 @@ public class Players implements PlayersInterface  {
 		player.setNumber(this.list.size() + 1);
 				
 		list.add(player);
+		int nameLength = name.length();
+		
+		if (nameLength > NameLenght) {
+			NameLenght = nameLength;
+			FieldLenght = NameLenght + 2;
+		  }
+		
 	}
 	
 	@Override

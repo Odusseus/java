@@ -1,4 +1,4 @@
-package org.odusseus.pinakas;
+package org.odusseus.pinakas.Interface;
 
 public interface PlayerInterface {
 

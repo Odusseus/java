@@ -1,9 +1,11 @@
-package org.odusseus.pinakas;
+package org.odusseus.pinakas.Implementation;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+
+import org.odusseus.pinakas.Interface.PropertiesWrapperInterface;
 
 public class PropertiesWrapper implements PropertiesWrapperInterface {
 	

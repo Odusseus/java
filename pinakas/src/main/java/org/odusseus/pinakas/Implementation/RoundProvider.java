@@ -1,4 +1,6 @@
-package org.odusseus.pinakas;
+package org.odusseus.pinakas.Implementation;
+
+import org.odusseus.pinakas.Interface.RoundInterface;
 
 import com.google.inject.Provider;
 
