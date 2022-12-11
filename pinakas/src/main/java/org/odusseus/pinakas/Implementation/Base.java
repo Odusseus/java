@@ -1,41 +1,39 @@
-package org.odusseus.pinakas;
+package org.odusseus.pinakas.Implementation;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Spliterator;
+
+import org.odusseus.pinakas.Interface.CrossTableInterface;
+import  org.odusseus.pinakas.Interface.OutPutInterface;
+import org.odusseus.pinakas.Interface.PlayerInterface;
+import org.odusseus.pinakas.CrossTableModule;
+import org.odusseus.pinakas.Interface.PropertiesWrapperInterface;
+
 import java.lang.String;
 
-import org.odusseus.pinakas.Implementation.OutPut;
-import org.odusseus.pinakas.Implementation.PropertiesWrapper;
-import org.odusseus.pinakas.Interface.OutPutInterface;
-import org.odusseus.pinakas.Interface.ParingsInterface;
-import org.odusseus.pinakas.Interface.PlayerInterface;
-import org.odusseus.pinakas.Interface.PlayersInterface;
-import org.odusseus.pinakas.Interface.PropertiesWrapperInterface;
-import org.odusseus.pinakas.Interface.RoundInterface;
-import org.odusseus.pinakas.Interface.RoundsInterface;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Provider;
+import com.google.inject.Injector;
 
-public class Base {
+public class Base {																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									
 	
 	private OutPutInterface output;
 	private PropertiesWrapperInterface properties;
-	private PlayersInterface players;
-	private RoundsInterface rounds;
-	private ParingsInterface parings;
+	private CrossTableInterface crossTable;
 	
 	@Inject
-	public Base(OutPutInterface output, PropertiesWrapper properties, PlayersInterface players,
-			    RoundsInterface rounds, ParingsInterface parings) {
+	public Base(OutPutInterface output, PropertiesWrapper properties) {
 		this.output = output;
 		this.properties = properties;
-		this.players = players;
-		this.rounds = rounds;
-		this.parings = parings;
-
+		
+		Injector injector = Guice.createInjector(new CrossTableModule());
+		
+		this.crossTable = injector.getInstance(CrossTable.class);
+		//this.players = players;
+		//this.rounds = rounds;
+		//this.parings = parings;
 	}
 	
 	public void Initialize () 
@@ -43,33 +41,34 @@ public class Base {
 		String names = this.properties.getProperty("names");
 		List<String> nameList = Arrays.asList(names.split("\\s*,\\s*"));
 		
+			
 		for (Iterator<String> iterator = nameList.iterator(); iterator.hasNext();) {
-			this.players.Add( (iterator.next()).strip());
+			this.crossTable.getPlayers().Add( (iterator.next()).strip());
 		}
 		
-		int numberOfPlayers = players.size();
+		int numberOfPlayers = this.crossTable.getPlayers().size();
 		if (numberOfPlayers % 2 != 0) {
-			this.players.Add( "?");
+			this.crossTable.getPlayers().Add( "?");
 		};
-		this.rounds.setNumberOf(numberOfPlayers - 1);
+		this.crossTable.getRounds().setNumberOf(numberOfPlayers - 1);
 		
-		for (int i = 0; i < players.getPlayers().size(); i++) {
+		for (int i = 0; i <  this.crossTable.getPlayers().getPlayers().size(); i++) {
 			
-			PlayerInterface player = players.getPlayers().get(i);
+			PlayerInterface player =  this.crossTable.getPlayers().getPlayers().get(i);
 			
 			System.out.println(String.format("Name: %d %s", player.getNumber(), player.getName()));		
 		}
 		
-		List<Integer> players = this.players.getListOfNumber();
-
-		for (int i = 0; i < this.rounds.getNumberOf(); i++) {
-			RoundInterface round = this.rounds.Add();
-			
-		}
+//		List<Integer> players =  this.crossTable.getPlayers().getListOfNumber();
+//
+//		for (int i = 0; i < this.crossTable.getRounds().getNumberOf(); i++) {
+//			RoundInterface round =  this.crossTable.getRounds().Add();
+//			
+//		}
 	}
 		
 	public  void WriteCrossTable() {
-		this.output.WriteCrossTable( this.players, this.rounds);
+		this.output.WriteCrossTable(this.crossTable);
 		
 	  }
 }

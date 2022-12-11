@@ -29,7 +29,6 @@ public class Players implements PlayersInterface  {
 		this.playerProvider = playerProvider;
 	}
 	
-	@Override
 	public void Add(String name)
 	{
 		PlayerInterface player = this.playerProvider.get();
@@ -50,7 +49,6 @@ public class Players implements PlayersInterface  {
 		return this.FieldLenght;		
 	}
 	
-	@Override
 	public List<Integer> getListOfNumber(){
 		List<Integer> returnList = new ArrayList<Integer>();
 		Iterable<PlayerInterface> iterable = this.list;
@@ -62,7 +60,6 @@ public class Players implements PlayersInterface  {
 		return returnList;		
 	}
 	
-	@Override
 	public List<PlayerInterface> getPlayers() {
 		return this.list;		
 	}

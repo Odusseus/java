@@ -1,5 +1,7 @@
 package org.odusseus.pinakas;
 
+import org.odusseus.pinakas.Implementation.Base;
+
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
