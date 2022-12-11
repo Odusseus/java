@@ -31,9 +31,6 @@ public class Base {
 		Injector injector = Guice.createInjector(new CrossTableModule());
 		
 		this.crossTable = injector.getInstance(CrossTable.class);
-		//this.players = players;
-		//this.rounds = rounds;
-		//this.parings = parings;
 	}
 	
 	public void Initialize () 
