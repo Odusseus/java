@@ -13,10 +13,12 @@ import com.google.inject.Provider;
 
 public class Players implements PlayersInterface  {
 	
+	
 	private List<PlayerInterface> list;
 	private Provider<PlayerInterface> playerProvider;
-	private int NameLenght;
-	private int FieldLenght;
+	static final int MinNameLenght = 6;
+	private int NameLenght = MinNameLenght;
+	private int FieldLenght = MinNameLenght + 2;
 	
     @Inject
     public Players(
@@ -37,16 +39,15 @@ public class Players implements PlayersInterface  {
 		list.add(player);
 		int nameLength = name.length();
 		
-		if (nameLength > NameLenght) {
-			NameLenght = nameLength;
-			FieldLenght = NameLenght + 2;
+		if (nameLength > this.NameLenght) {
+			this.NameLenght = nameLength;
+			this.FieldLenght = this.NameLenght + 2;
 		  }
 		
 	}
 	
-	@Override
-	public List<PlayerInterface> getPlayers() {
-		return this.list;		
+	public int getFieldLenght() {
+		return this.FieldLenght;		
 	}
 	
 	@Override
@@ -61,8 +62,13 @@ public class Players implements PlayersInterface  {
 		return returnList;		
 	}
 	
-	public int getFieldLenght() {
-		return this.FieldLenght;		
+	@Override
+	public List<PlayerInterface> getPlayers() {
+		return this.list;		
 	}
 	
+	public int size() {
+		return this.list.size();
+	}
+
 }

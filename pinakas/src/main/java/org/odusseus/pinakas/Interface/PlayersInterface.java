@@ -6,10 +6,11 @@ public interface PlayersInterface {
 
 	void Add(String name);
 	
-	List<PlayerInterface> getPlayers();
+	int getFieldLenght();
 
 	List<Integer> getListOfNumber();
-	
-    int getFieldLenght();
 
+	List<PlayerInterface> getPlayers();
+	    
+    int size();
 }

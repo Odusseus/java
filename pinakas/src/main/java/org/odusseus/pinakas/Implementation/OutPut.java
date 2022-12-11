@@ -18,28 +18,39 @@ public class OutPut implements OutPutInterface {
 		
         List<String> lines = new ArrayList<String>(); 
         
-        lines.add( "_".repeat(players.getFieldLenght()*players.getPlayers().size()+2));
+        String lineSeparate = "_".repeat(1+((players.getFieldLenght()+1)*(players.size()+2)));
         
-        String name = "Name"+ " ".repeat(players.getFieldLenght()-4);
+        lines.add( lineSeparate);
         
-        
+        String name = "Name"+ " ".repeat(players.getFieldLenght()-4);        
         String line = "|"+name +"|";
+        
 		for (PlayerInterface player : iterable) {
-		   line += player.getName();
+		   line += player.getName() + " ".repeat(players.getFieldLenght()-player.getName().length());
 		   line += "|";		   
 		}
+		 String totaal = "Totaal"+ " ".repeat(players.getFieldLenght()-6);        
+	      line += totaal +"|";
+	        
 		lines.add(line);
-		 lines.add( "_".repeat(players.getFieldLenght()*players.getPlayers().size()+2));
+		
+		 lines.add( lineSeparate);
 
 		 line = "";
 		 for (PlayerInterface player : iterable) {
 			 line = "|";		   
 			 line += player.getName()+ " ".repeat(players.getFieldLenght()-player.getName().length());
 			 line += "|";	
+			 for(int i = 0; i < players.size()+ 1 ; i++) {
+			   line += " ".repeat(players.getFieldLenght());
+			   line += "|";	
+			 }
 			 lines.add(line);
+			 lines.add( lineSeparate);
+
 			}
 		 
-		 lines.add( "_".repeat(players.getFieldLenght()*players.getPlayers().size()+2));
+		 //lines.add( "_".repeat(players.getFieldLenght()*players.getPlayers().size()+2));
 		 
 		for(String currentLine : lines) {
 			System.out.println(currentLine);

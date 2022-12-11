@@ -47,9 +47,11 @@ public class Base {
 			this.players.Add( (iterator.next()).strip());
 		}
 		
-		int numberOf = players.getPlayers().size();
-		if (numberOf % 2 != 0) numberOf ++;
-		this.rounds.setNumberOf(numberOf);
+		int numberOfPlayers = players.size();
+		if (numberOfPlayers % 2 != 0) {
+			this.players.Add( "?");
+		};
+		this.rounds.setNumberOf(numberOfPlayers - 1);
 		
 		for (int i = 0; i < players.getPlayers().size(); i++) {
 			
