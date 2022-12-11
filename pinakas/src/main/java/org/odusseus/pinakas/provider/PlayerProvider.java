@@ -1,5 +1,6 @@
-package org.odusseus.pinakas.Implementation;
+package org.odusseus.pinakas.provider;
 
+import org.odusseus.pinakas.Implementation.Player;
 import org.odusseus.pinakas.Interface.PlayerInterface;
 
 import com.google.inject.Provider;

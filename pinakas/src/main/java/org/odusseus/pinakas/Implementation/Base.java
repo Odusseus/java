@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.odusseus.pinakas.Interface.CrossTableInterface;
 import  org.odusseus.pinakas.Interface.OutPutInterface;
+import org.odusseus.pinakas.Interface.ParingInterface;
 import org.odusseus.pinakas.Interface.PlayerInterface;
 import org.odusseus.pinakas.CrossTableModule;
 import org.odusseus.pinakas.Interface.PropertiesWrapperInterface;
+import org.odusseus.pinakas.Interface.RoundInterface;
 
 import java.lang.String;
 
@@ -56,16 +58,30 @@ public class Base {
 			System.out.println(String.format("Name: %d %s", player.getNumber(), player.getName()));		
 		}
 		
-//		List<Integer> players =  this.crossTable.getPlayers().getListOfNumber();
-//
-//		for (int i = 0; i < this.crossTable.getRounds().getNumberOf(); i++) {
-//			RoundInterface round =  this.crossTable.getRounds().Add();
-//			
-//		}
+		List<Integer> players =  this.crossTable.getPlayers().getListOfNumber();
+
+		for (int i = 0; i < this.crossTable.getRounds().getNumberOf(); i++) {
+			this.crossTable.getRounds().Add();			
+		}
+ 
+		
+		List<RoundInterface> rounds =  this.crossTable.getRounds().getRounds();
+		
+		RoundInterface round = rounds.get(1);
+		
+		for(int i = 1; i < this.crossTable.getPlayers().getNumberOfPlayers(); i++) {
+			//ParingInterface paring = 
+		}
+		
+		
+		
+
 	}
 		
 	public  void WriteCrossTable() {
 		this.output.WriteCrossTable(this.crossTable);
 		
 	  }
+	
+	
 }

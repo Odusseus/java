@@ -6,9 +6,7 @@ import java.util.List;
 import org.odusseus.pinakas.Interface.ParingInterface;
 import org.odusseus.pinakas.Interface.ParingsInterface;
 
-import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 import com.google.inject.Provider;
 
 public class Parings implements ParingsInterface    {

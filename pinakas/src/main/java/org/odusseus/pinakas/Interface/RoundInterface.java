@@ -5,5 +5,7 @@ public interface RoundInterface {
 	int getNumber();
 
 	void setNumber(int number);
+	
+	ParingsInterface getParings();
 
 }

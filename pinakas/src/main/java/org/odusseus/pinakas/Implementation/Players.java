@@ -19,6 +19,7 @@ public class Players implements PlayersInterface  {
 	static final int MinNameLenght = 6;
 	private int NameLenght = MinNameLenght;
 	private int FieldLenght = MinNameLenght + 2;
+	private int NumberOfPlayers;
 	
     @Inject
     public Players(
@@ -33,7 +34,8 @@ public class Players implements PlayersInterface  {
 	{
 		PlayerInterface player = this.playerProvider.get();
 		player.setName(name);
-		player.setNumber(this.list.size() + 1);
+		this.NumberOfPlayers = this.list.size() + 1;
+		player.setNumber(this.NumberOfPlayers);
 				
 		list.add(player);
 		int nameLength = name.length();
@@ -45,6 +47,10 @@ public class Players implements PlayersInterface  {
 		
 	}
 	
+	public int getNumberOfPlayers() {
+		return NumberOfPlayers;
+	}
+
 	public int getFieldLenght() {
 		return this.FieldLenght;		
 	}

@@ -13,4 +13,6 @@ public interface PlayersInterface {
 	List<PlayerInterface> getPlayers();
 	    
     int size();
+
+	int getNumberOfPlayers();
 }

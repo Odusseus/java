@@ -1,10 +1,7 @@
 package org.odusseus.pinakas;
 
-import org.odusseus.pinakas.Implementation.ParingProvider;
 import org.odusseus.pinakas.Implementation.Parings;
-import org.odusseus.pinakas.Implementation.PlayerProvider;
 import org.odusseus.pinakas.Implementation.Players;
-import org.odusseus.pinakas.Implementation.RoundProvider;
 import org.odusseus.pinakas.Implementation.Rounds;
 import org.odusseus.pinakas.Interface.ParingInterface;
 import org.odusseus.pinakas.Interface.ParingsInterface;
@@ -12,6 +9,9 @@ import org.odusseus.pinakas.Interface.PlayerInterface;
 import org.odusseus.pinakas.Interface.PlayersInterface;
 import org.odusseus.pinakas.Interface.RoundInterface;
 import org.odusseus.pinakas.Interface.RoundsInterface;
+import org.odusseus.pinakas.provider.ParingProvider;
+import org.odusseus.pinakas.provider.PlayerProvider;
+import org.odusseus.pinakas.provider.RoundProvider;
 
 import com.google.inject.AbstractModule;
 
