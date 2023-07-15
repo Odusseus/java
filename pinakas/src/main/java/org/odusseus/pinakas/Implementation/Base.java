@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.odusseus.pinakas.Interface.CrossTableInterface;
-import  org.odusseus.pinakas.Interface.OutPutInterface;
+import org.odusseus.pinakas.Interface.OutPutInterface;
 import org.odusseus.pinakas.Interface.ParingInterface;
 import org.odusseus.pinakas.Interface.PlayerInterface;
 import org.odusseus.pinakas.CrossTableModule;
