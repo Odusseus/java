@@ -37,8 +37,7 @@ public class Base {
 	
 	public void Initialize () 
 	{
-		String names = this.properties.getProperty("names");
-		List<String> nameList = Arrays.asList(names.split("\\s*,\\s*"));
+		List<String> nameList = getNames();
 		
 			
 		for (Iterator<String> iterator = nameList.iterator(); iterator.hasNext();) {
@@ -76,6 +75,12 @@ public class Base {
 		
 		
 
+	}
+
+	private List<String> getNames() {
+		String names = this.properties.getProperty("names");
+		List<String> nameList = Arrays.asList(names.split("\\s*,\\s*"));
+		return nameList;
 	}
 		
 	public  void WriteCrossTable() {
