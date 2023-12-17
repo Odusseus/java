@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
  
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +21,13 @@ import org.springframework.web.bind.annotation.PostMapping;
  
 @Controller
 public class MvcController {
-     
+
+    private Users users;
+
+    MvcController(){
+        this.users = new Users(); 
+    }
+
     @RequestMapping("/")
     public String home() {
         System.out.println("Going home...");
@@ -38,9 +46,17 @@ public class MvcController {
     }
 
     @PostMapping("/register")
-    public String submitForm(@ModelAttribute("user") User user) {
+    public String submitForm(@ModelAttribute("user") User user, BindingResult result, ModelMap model) {
 
         System.out.println(user);
+
+        this.users.addName(user);
+
+        List<User> users = this.users.getUsers();
+        model.addAttribute("users", users);
+        //model.addAttribut("users", users);
+
+        System.out.println(users);
 
         return "register_success";
     }
