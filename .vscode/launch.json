@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-DefterosApplication<Defteros>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "org.odusseus.Defteros.DefterosApplication",
+      "projectName": "Defteros",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
