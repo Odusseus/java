@@ -3,17 +3,19 @@ package org.odusseus.Defteros;
 import java.time.*;;
 
 public class Event {
-	private Integer number;
+	private static Integer maxNumber = 0;
+	private Integer number;	
 	private String name;
-	private LocalDate date;
+	private String date;
 
 	public Event() {
 		super();
 	}
 
-	public Event(Integer number, String name, LocalDate date) {
+	public Event(String name, String date) {
 		super();
-		this.number = number;
+		maxNumber++;
+		this.number = maxNumber;
 		this.name = name;
 		this.date = date;
 	}
@@ -22,10 +24,6 @@ public class Event {
 			return number;
 		}
 	
-		public void setNumber(Integer number) {
-			this.number = number;
-		}
-
 	public String getName() {
 		return name;
 	}
@@ -34,11 +32,11 @@ public class Event {
 		this.name = name;
 	}
 
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

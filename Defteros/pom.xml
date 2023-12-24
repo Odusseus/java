@@ -30,6 +30,11 @@
     	<artifactId>spring-boot-devtools</artifactId>
     	<optional>true</optional>
 		</dependency>
+		<dependency>
+    <groupId>com.google.code.gson</groupId>
+    	<artifactId>gson</artifactId>
+    	<version>2.10.1</version>
+		</dependency>
 		<!-- https://hackernoon.com/using-postgres-effectively-in-spring-boot-applications -->
 		<!-- <dependency>
     	<groupId>org.springframework.boot</groupId>

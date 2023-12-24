@@ -8,17 +8,17 @@
 <body>
 	<h1 align="center">Events</h1>
 	<br/>
+      <a href="/new_event">Enter New Event</a>
+    <br/>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th>Number</th>
                 <th>Name</th>
                 <th>Date</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="event : ${events}">
-                <td th:text="${event.number}">Number</td>
                 <td th:text="${event.name}">Name</td>
                 <td th:text="${event.date}">Date</td>                
             </tr>

@@ -37,5 +37,22 @@ public class AppController {
 		return "event";
 	}
 
+	@RequestMapping("/new_event")
+	public String newEvent(Model model) {
+		
+		Event event = new Event();		
+		model.addAttribute("event", event);		
+		
+		return "new_event_form";
+	}
+
+	@RequestMapping("/save_event")
+	public String saveEvent(Event event) {
+		
+		EventBusiness business = new EventBusiness();
+		business.add(event);
+		return "redirect:/list_event";
+	}
+
 	//https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application-with-jdbc-thymeleaf-oracle
 }
