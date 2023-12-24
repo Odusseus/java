@@ -48,9 +48,11 @@ public class AppController {
 
 	@RequestMapping("/save_event")
 	public String saveEvent(Event event) {
+
+		Event newEvent = new Event(event.getName(), event.getDate());
 		
 		EventBusiness business = new EventBusiness();
-		business.add(event);
+		business.add(newEvent);
 		return "redirect:/list_event";
 	}
 

@@ -1,6 +1,6 @@
 package org.odusseus.Defteros;
 
-import java.time.*;;
+import java.time.*;
 
 public class Event {
 	private static Integer maxNumber = 0;
