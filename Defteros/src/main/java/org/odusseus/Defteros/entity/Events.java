@@ -16,7 +16,12 @@ public class Events {
 	}
 
 	public void add(Event event) {		
-		this.list.add(event);
 		this.maxNumber ++;
+		event.setNumber(this.maxNumber);
+		this.list.add(event);
+	}
+
+	public Integer getMaxNumber(){
+		return this.maxNumber;
 	}
 }

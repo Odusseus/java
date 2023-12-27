@@ -10,12 +10,6 @@ public class SingletonBeanConfig {
   
   @Bean
   @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-  public EventDAO eventDAO() {
-      return new EventDAO();
-  }
-
-  @Bean
-  @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
   public EventsDAO eventsDAO() {
       return new EventsDAO();
   }

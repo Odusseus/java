@@ -1,7 +1,6 @@
 package org.odusseus.Defteros.entity;
 
 public class Event {
-	private static Integer maxNumber = 0;
 	private Integer number;	
 	private String name;
 	private String date;
@@ -12,15 +11,18 @@ public class Event {
 
 	public Event(String name, String date) {
 		super();
-		maxNumber++;
-		this.number = maxNumber;
 		this.name = name;
 		this.date = date;
 	}
 	
-		public Integer getNumber() {
-			return number;
-		}
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+		return;
+	}
 	
 	public String getName() {
 		return name;

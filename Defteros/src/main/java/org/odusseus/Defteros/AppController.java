@@ -33,15 +33,16 @@ public class AppController {
     return "contact";
   }
 
-  @RequestMapping("/list_event")
-  public String listEvent(Model model) {
+  //https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application-with-jdbc-thymeleaf-oracle
+
+  @RequestMapping("/events")
+  public String events(Model model) {
     
-    //EventBusiness business = new EventBusiness();
-    List<Event> eventList = this.business.getEventList();
+    Events events = this.business.getEvents();
     
-    model.addAttribute("events", eventList);		
+    model.addAttribute("events", events);		
     
-    return "event";
+    return "events";
   }
 
   @RequestMapping("/new_event")
@@ -57,22 +58,8 @@ public class AppController {
   public String saveEvent(Event event) {
 
     Event newEvent = new Event(event.getName(), event.getDate());
-    
-    //EventBusiness business = new EventBusiness();
-    this.business.add(newEvent);
-    return "redirect:/list_event";
-  }
 
-  //https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application-with-jdbc-thymeleaf-oracle
-
-  @RequestMapping("/events")
-  public String events(Model model) {
-    
-    //EventBusiness business = new EventBusiness();
-    Events events = this.business.getEvents();
-    
-    model.addAttribute("events", events);		
-    
-    return "events";
+    this.business.addEvents(newEvent);
+    return "redirect:/events";
   }
 }

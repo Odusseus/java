@@ -9,12 +9,12 @@
 <body>
 	<h1 align="center">Events</h1>
 	<br/>
-      <a href="/new_events">Enter New Event</a>
+      <a href="/new_event">Enter New Event</a>
     <br/>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th>Number</th>
+                <th>Number <span th:text="${events.maxNumber}">x</span></th>
                 <th>Name</th>
                 <th>Date</th>
             </tr>
