@@ -39,11 +39,8 @@ public class EventsDAO {
 		return events;
 	}
 
-	public void saveEvent(Event event) {
-		Events events = this.read();
 
-		events.add(event);
-
+	public void save(Events events) {		
 		Gson gson = new Gson();
     String jsonArray = gson.toJson(events);
 
@@ -55,5 +52,31 @@ public class EventsDAO {
 			e.printStackTrace();
 		}
     return;
+	}
+	
+	public void saveEvent(Event event) {
+		Events events = this.read();
+
+		events.add(event);
+
+		this.save(events);
+	}
+
+	public void delete(Integer id){
+		Events events = this.read();
+
+		events.delete(id);
+
+		this.save(events);
+
+		return;
+	};
+
+	public void updateEvent(Event event) {
+		Events events = this.read();
+
+		events.update(event);
+
+		this.save(events);
 	}
 }

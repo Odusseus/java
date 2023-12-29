@@ -1,7 +1,7 @@
 package org.odusseus.Defteros.entity;
 
 public class Event {
-	private Integer number;	
+	private Integer id;	
 	private String name;
 	private String date;
 
@@ -15,12 +15,12 @@ public class Event {
 		this.date = date;
 	}
 	
-	public Integer getNumber() {
-		return number;
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setId(Integer id) {
+		this.id = id;
 		return;
 	}
 	

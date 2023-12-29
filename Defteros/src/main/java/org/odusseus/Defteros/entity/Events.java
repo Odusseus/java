@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Events {
-	private Integer maxNumber = 0;
+	private Integer maxId = 0;
 	private List<Event> list = new ArrayList<Event>();
 
 	public Events() {
@@ -16,12 +16,39 @@ public class Events {
 	}
 
 	public void add(Event event) {		
-		this.maxNumber ++;
-		event.setNumber(this.maxNumber);
+		this.maxId ++;
+		event.setId(this.maxId);
 		this.list.add(event);
 	}
 
-	public Integer getMaxNumber(){
-		return this.maxNumber;
+	public void delete(Integer id){
+
+		List<Event> newList = new ArrayList<Event>();
+		for (Event event : this.list) {
+			if(event.getId() != id){
+				newList.add(event);
+			}
+		} 
+		this.list = newList;
 	}
+
+	public void update(Event newEvent){
+
+		Integer index = 0;
+		List<Event> eventList = this.getList();
+
+		for (Event event : eventList) {
+			if(event.getId() == newEvent.getId()){
+				break;
+			}
+			index ++;
+		} 
+
+		eventList.set(index, newEvent);
+	}
+
+	public Integer getMaxId(){
+		return this.maxId;
+	}
+
 }

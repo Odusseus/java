@@ -14,16 +14,24 @@
     <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th>Number <span th:text="${events.maxNumber}">x</span></th>
+                <th>Id <span th:text="${events.maxId}">id</span></th>
                 <th>Name</th>
                 <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="event : ${events.list}">
-                <td th:text="${event.number}">Number</td>
+                <td th:text="${event.id}">Id</td>
                 <td th:text="${event.name}">Name</td>
                 <td th:text="${event.date}">Date</td>                
+                <td> 
+                    <a th:href="${'/edit/' + {event.id}}">Edit</a>
+                </td>                
+                <td> 
+                    <a th:href="${'/delete/' + {event.id}}">Delete</a>
+                </td>                
             </tr>
         </tbody>
     </table>
