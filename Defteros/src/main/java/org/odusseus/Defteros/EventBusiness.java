@@ -1,13 +1,9 @@
 package org.odusseus.Defteros;
 
-import java.util.List;
-
-import org.odusseus.Defteros.entity.Event;
 import org.odusseus.Defteros.entity.Events;
+import org.odusseus.Defteros.entity.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.google.common.collect.Iterables;
 
 @Component
 public class EventBusiness {

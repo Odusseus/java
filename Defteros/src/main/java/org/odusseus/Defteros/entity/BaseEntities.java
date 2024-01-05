@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.odusseus.Defteros.Utils;
 
-public class Events {
+public class BaseEntities {
   private Integer maxId = 0;
   private List<Event> list = new ArrayList<Event>();
   private String filename = Utils.getShortClassName(this)+".json";
 
-  public Events() {
+  public BaseEntities() {
     super();
   }
   

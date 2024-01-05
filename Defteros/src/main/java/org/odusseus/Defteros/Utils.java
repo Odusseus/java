@@ -2,7 +2,7 @@ package org.odusseus.Defteros;
 
 public final class Utils {
 
-  public static <T> String GetShortClassName(T t){
+  public static <T> String getShortClassName(T t){
     Class<?> enclosingClass = t.getClass().getEnclosingClass();
     String name;
 

@@ -1,8 +1,6 @@
 package org.odusseus.Defteros.entity;
 
-public class Event {
-	private Integer id;	
-	private String name;
+public class Event extends BaseEntity{
 	private String date;
 
 	public Event() {
@@ -11,27 +9,9 @@ public class Event {
 
 	public Event(String name, String date) {
 		super();
-		this.name = name;
 		this.date = date;
-	}
+	}	
 	
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-		return;
-	}
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getDate() {
 		return date;
 	}
