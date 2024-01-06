@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Persons</title>
+</head>
+<body>
+	<h1 align="center">Persons</h1>
+    <br/>
+    <a href="/">Home</a>
+  <br/>
+	<br/>
+      <a href="/person/new">Enter New Person</a>
+    <br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Id <span th:text="${persons.maxId}">id</span></th>
+                <th>Name</th>                
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person : ${persons.list}">
+                <td th:text="${person.id}">Id</td>
+                <td th:text="${person.name}">Name</td>                
+                <td> 
+                    <a th:href="${'/person/edit/' + {person.id}}">Edit</a>
+                </td>                
+                <td> 
+                    <a th:href="${'/person/delete/' + {person.id}}">Delete</a>
+                </td>                
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

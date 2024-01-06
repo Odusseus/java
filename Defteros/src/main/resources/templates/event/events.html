@@ -7,9 +7,12 @@
 <title>Events</title>
 </head>
 <body>
-	<h1 align="center">Events</h1>
-	<br/>
-      <a href="/new_event">Enter New Event</a>
+    <h1 align="center">Events</h1>
+    <br/>
+      <a href="/">Home</a>
+    <br/>
+    <br/>
+      <a href="/event/new">Enter New Event</a>
     <br/>
     <table border="1" cellpadding="10">
         <thead>
@@ -25,12 +28,12 @@
             <tr th:each="event : ${events.list}">
                 <td th:text="${event.id}">Id</td>
                 <td th:text="${event.name}">Name</td>
-                <td th:text="${event.date}">Date</td>                
+                <td th:text="${event.dateLocal}">Date</td>                
                 <td> 
-                    <a th:href="${'/edit/' + {event.id}}">Edit</a>
+                    <a th:href="${'/event/edit/' + {event.id}}">Edit</a>
                 </td>                
                 <td> 
-                    <a th:href="${'/delete/' + {event.id}}">Delete</a>
+                    <a th:href="${'/event/delete/' + {event.id}}">Delete</a>
                 </td>                
             </tr>
         </tbody>

@@ -1,8 +1,8 @@
 package org.odusseus.Defteros.entity;
 
 public class BaseEntity {
-	private Integer id;	
-	private String name;
+	protected Integer id;	
+	protected String name;
 
 	public BaseEntity() {
 		super();
