@@ -1,4 +1,4 @@
-package org.odusseus.Defteros;
+package org.odusseus.Defteros.utils;
 
 public final class Utils {
 

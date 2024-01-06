@@ -1,6 +1,7 @@
-package org.odusseus.Defteros;
+package org.odusseus.Defteros.logic;
 
 import org.odusseus.Defteros.entity.Events;
+import org.odusseus.Defteros.dao.EventsDAO;
 import org.odusseus.Defteros.entity.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

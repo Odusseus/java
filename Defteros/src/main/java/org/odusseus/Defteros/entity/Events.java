@@ -3,7 +3,7 @@ package org.odusseus.Defteros.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.odusseus.Defteros.Utils;
+import org.odusseus.Defteros.utils.Utils;
 
 public class Events {
   private Integer maxId = 0;

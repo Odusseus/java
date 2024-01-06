@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import org.odusseus.Defteros.entity.Event;
+import org.odusseus.Defteros.utils.Utils;
 
 @SpringBootTest
 public class UtilsTests {

@@ -1,23 +1,45 @@
 package org.odusseus.Defteros.entity;
 
-public class Event extends BaseEntity{
-	private String date;
+public class Event{
+	private Integer id;	
+	private String name;
+	private String dateLocal;
 
 	public Event() {
 		super();
 	}
 
-	public Event(String name, String date) {
+	public Event(String name, String dateLocal) {
 		super();
-		this.date = date;
+		this.name = name;
+		this.dateLocal = dateLocal;
 	}	
-	
-	public String getDate() {
-		return date;
+
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setId(Integer id) {
+		this.id = id;
+		return;
 	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getDate() {
+		return dateLocal;
+	}
+
+	public void setDate(String dateLocal) {
+		this.dateLocal = dateLocal;
+	}
+
+
 
 }

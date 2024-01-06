@@ -1,9 +1,8 @@
-package org.odusseus.Defteros;
-
-import java.util.List;
+package org.odusseus.Defteros.controller;
 
 import org.odusseus.Defteros.entity.Event;
 import org.odusseus.Defteros.entity.Events;
+import org.odusseus.Defteros.logic.EventBusiness;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,19 +25,7 @@ public class AppController {
         return "index";
     }    
 
-  @RequestMapping("/list_contact")
-  public String listContact(Model model) {
-    
-    ContactBusiness business = new ContactBusiness();
-    List<Contact> contactList = business.getContactList();
-    
-    model.addAttribute("contacts", contactList);		
-    
-    return "contact";
-  }
-
-  
-  @RequestMapping("/events")
+    @RequestMapping("/events")
   public String events(Model model) {
     
     Events events = this.business.getEvents();

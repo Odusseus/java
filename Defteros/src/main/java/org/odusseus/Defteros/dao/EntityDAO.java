@@ -1,4 +1,4 @@
-package org.odusseus.Defteros;
+package org.odusseus.Defteros.dao;
 
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;

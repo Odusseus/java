@@ -1,5 +1,6 @@
-package org.odusseus.Defteros;
+package org.odusseus.Defteros.config;
 
+import org.odusseus.Defteros.dao.EventsDAO;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
