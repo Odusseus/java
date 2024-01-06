@@ -14,7 +14,6 @@ import org.odusseus.Defteros.entity.Persons;
 import com.google.gson.*;
 
 public class PersonsDAO {
-	private static final String fileName = "persons.json";
 
 	public Persons read() {
 		Gson gson = new Gson();
@@ -22,12 +21,12 @@ public class PersonsDAO {
 		Persons persons = new Persons();		
 
 		
-			File file = new File(fileName);
+			File file = new File(persons.getFilename());
 			boolean isExist = file.exists();  // Check for valid path
 			boolean isFile  = file.isFile();  // Check for file
 			if(isExist && isFile) {
 				System.out.println("File is present");
-    		try (FileInputStream fis = new FileInputStream(fileName)) {
+    		try (FileInputStream fis = new FileInputStream(persons.getFilename())) {
 					DataInputStream reader = new DataInputStream(fis);
 					jsonArray = reader.readUTF();
 					reader.close();
@@ -44,7 +43,7 @@ public class PersonsDAO {
 		Gson gson = new Gson();
     String jsonArray = gson.toJson(persons);
 
-		try (FileOutputStream fos = new FileOutputStream(fileName)) {
+		try (FileOutputStream fos = new FileOutputStream(persons.getFilename())) {
 			DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 			outStream.writeUTF(jsonArray);
 			outStream.close();

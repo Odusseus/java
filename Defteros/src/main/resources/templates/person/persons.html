@@ -19,6 +19,7 @@
             <tr>
                 <th>Id <span th:text="${persons.maxId}">id</span></th>
                 <th>Name</th>                
+                <th>Rating</th>                
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -27,6 +28,7 @@
             <tr th:each="person : ${persons.list}">
                 <td th:text="${person.id}">Id</td>
                 <td th:text="${person.name}">Name</td>                
+                <td th:text="${person.rating}">Rating</td>                
                 <td> 
                     <a th:href="${'/person/edit/' + {person.id}}">Edit</a>
                 </td>                

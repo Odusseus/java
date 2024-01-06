@@ -13,31 +13,28 @@ import org.odusseus.Defteros.entity.Events;
 
 import com.google.gson.*;
 
-public class EntityDAO {
+public class EntitiesDAO {
 
 	public Events read() {
 		Gson gson = new Gson();
     String jsonArray;
 		Events events = new Events();		
-
-		
-			File file = new File(events.getFilename());
-			boolean isExist = file.exists();  // Check for valid path
-			boolean isFile  = file.isFile();  // Check for file
-			if(isExist && isFile) {
-				System.out.println("File is present");
-    		try (FileInputStream fis = new FileInputStream(events.getFilename())) {
-					DataInputStream reader = new DataInputStream(fis);
-					jsonArray = reader.readUTF();
-					reader.close();
-					events = gson.fromJson(jsonArray,  Events.class);		
-				} catch (IOException e) {
-				e.printStackTrace();
-			}
+		File file = new File(events.getFilename());
+		boolean isExist = file.exists();  // Check for valid path
+		boolean isFile  = file.isFile();  // Check for file
+		if(isExist && isFile) {
+			System.out.println("File is present");
+   		try (FileInputStream fis = new FileInputStream(events.getFilename())) {
+				DataInputStream reader = new DataInputStream(fis);
+				jsonArray = reader.readUTF();
+				reader.close();
+				events = gson.fromJson(jsonArray,  Events.class);		
+			} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return events;
 	}
-
+	return events;
+ }
 
 	public void save(Events events) {		
 		Gson gson = new Gson();

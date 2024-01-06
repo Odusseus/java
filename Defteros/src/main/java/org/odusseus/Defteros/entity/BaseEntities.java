@@ -3,12 +3,12 @@ package org.odusseus.Defteros.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.odusseus.Defteros.Utils;
+import org.odusseus.Defteros.utils.Utils;
 
-public class BaseEntities<T> {
-  private Integer maxId = 0;
-  private List<T> list = new ArrayList<T>();
-  private String filename = Utils.getShortClassName(this)+".json";
+public class BaseEntities<T extends BaseEntity> {
+  protected Integer maxId = 0;
+  protected List<T> list = new ArrayList<T>();
+  protected String filename = Utils.getShortClassName(this)+".json";
 
   public BaseEntities() {
     super();
