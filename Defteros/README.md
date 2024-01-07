@@ -14,3 +14,4 @@ TODO
 10 Add number of rounds
 11 Generate Round 1
 12 List with result
+13 Refactoring with Lombok     done
