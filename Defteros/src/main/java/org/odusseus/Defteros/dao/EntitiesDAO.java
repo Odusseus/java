@@ -37,17 +37,18 @@ public class EntitiesDAO<T extends BaseEntity, U extends BaseEntities<T>>  {
 		File file = new File(baseEntities.getFilename());
 		boolean isExist = file.exists();  // Check for valid path
 		boolean isFile  = file.isFile();  // Check for file
-		if(isExist && isFile) {
-			System.out.println("File is present");
+		if(isExist && isFile) {			
    		try (FileInputStream fis = new FileInputStream(baseEntities.getFilename())) {
 				DataInputStream reader = new DataInputStream(fis);
 				jsonArray = reader.readUTF();
 				reader.close();
 				baseEntities = gson.fromJson(jsonArray,  this.typeU);		
 			} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+			 		e.printStackTrace();
+				} 
+	}	else {
+			System.out.println(String.format("File ui=%s is not found present.", baseEntities.getFilename()));
+		}	
 	return baseEntities;
  }
 
