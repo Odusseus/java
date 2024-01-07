@@ -18,7 +18,7 @@ public class PersonLogic {
   }
 
   public void addPersons(Person person) {
-    this.personsDAO.savePerson(person);
+    this.personsDAO.saveEntity(person);
   }
 
   public Person getPerson(Integer id) {		
@@ -39,7 +39,7 @@ public class PersonLogic {
   }
 
   public void updatePerson(Person person) {
-    this.personsDAO.updatePerson(person);
+    this.personsDAO.updateEntity(person);
     return;
   }
 

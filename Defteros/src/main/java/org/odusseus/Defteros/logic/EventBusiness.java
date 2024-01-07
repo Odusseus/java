@@ -18,7 +18,7 @@ public class EventBusiness {
   }
 
   public void addEvents(Event event) {
-    this.eventsDAO.saveEvent(event);
+    this.eventsDAO.saveEntity(event);
   }
 
   public Event getEvent(Integer id) {		
@@ -39,8 +39,7 @@ public class EventBusiness {
   }
 
   public void updateEvent(Event event) {
-    this.eventsDAO.updateEvent(event);
+    this.eventsDAO.updateEntity(event);
     return;
   }
-
 }

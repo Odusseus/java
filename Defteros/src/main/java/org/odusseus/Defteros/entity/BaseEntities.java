@@ -8,7 +8,7 @@ import org.odusseus.Defteros.utils.Utils;
 public class BaseEntities<T extends BaseEntity> {
   protected Integer maxId = 0;
   protected List<T> list = new ArrayList<T>();
-  protected String filename = Utils.getShortClassName(this)+".json";
+  protected String filename = "json/" + Utils.getShortClassName(this) + ".json";
 
   public BaseEntities() {
     super();

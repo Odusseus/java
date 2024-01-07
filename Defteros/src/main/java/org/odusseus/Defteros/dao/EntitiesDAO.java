@@ -8,39 +8,54 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import org.odusseus.Defteros.entity.Event;
-import org.odusseus.Defteros.entity.Events;
+import org.odusseus.Defteros.entity.BaseEntities;
+import org.odusseus.Defteros.entity.BaseEntity;
 
 import com.google.gson.*;
 
-public class EntitiesDAO {
+public class EntitiesDAO<T extends BaseEntity, U extends BaseEntities<T>>  {
 
-	public Events read() {
+	private Class<U> typeU;
+
+	public EntitiesDAO(Class<U> typeU){
+		this.typeU = typeU;
+	}
+
+	U createContents(Class<U> clazz) {
+		try {
+			return clazz.getDeclaredConstructor().newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public U read() {
 		Gson gson = new Gson();
     String jsonArray;
-		Events events = new Events();		
-		File file = new File(events.getFilename());
+		U baseEntities = this.createContents(typeU);		
+		File file = new File(baseEntities.getFilename());
 		boolean isExist = file.exists();  // Check for valid path
 		boolean isFile  = file.isFile();  // Check for file
 		if(isExist && isFile) {
 			System.out.println("File is present");
-   		try (FileInputStream fis = new FileInputStream(events.getFilename())) {
+   		try (FileInputStream fis = new FileInputStream(baseEntities.getFilename())) {
 				DataInputStream reader = new DataInputStream(fis);
 				jsonArray = reader.readUTF();
 				reader.close();
-				events = gson.fromJson(jsonArray,  Events.class);		
+				baseEntities = gson.fromJson(jsonArray,  this.typeU);		
 			} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	return events;
+	return baseEntities;
  }
 
-	public void save(Events events) {		
+	public void save(U baseEntities) {		
 		Gson gson = new Gson();
-    String jsonArray = gson.toJson(events);
+    String jsonArray = gson.toJson(baseEntities);
 
-		try (FileOutputStream fos = new FileOutputStream(events.getFilename())) {
+		try (FileOutputStream fos = new FileOutputStream(baseEntities.getFilename())) {
 			DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
 			outStream.writeUTF(jsonArray);
 			outStream.close();
@@ -50,29 +65,29 @@ public class EntitiesDAO {
     return;
 	}
 	
-	public void saveEvent(Event event) {
-		Events events = this.read();
+	public void saveEntity(T baseEntity) {
+		U baseEntities = this.read();
 
-		events.add(event);
+		baseEntities.add(baseEntity);
 
-		this.save(events);
+		this.save(baseEntities);
 	}
 
 	public void delete(Integer id){
-		Events events = this.read();
+		U baseEntities = this.read();
 
-		events.delete(id);
+		baseEntities.delete(id);
 
-		this.save(events);
+		this.save(baseEntities);
 
 		return;
 	};
 
-	public void updateEvent(Event event) {
-		Events events = this.read();
+	public void updateEntity(T baseEntity) {
+		U baseEntities = this.read();
 
-		events.update(event);
+		baseEntities.update(baseEntity);
 
-		this.save(events);
+		this.save(baseEntities);
 	}
 }
