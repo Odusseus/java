@@ -11,7 +11,7 @@ TODO
 7  Person to Generic           done
 8  Event to Generic            done
 9  Coupling persons to events
-10 Add number of rounds
+10 Add number of rounds        done
 11 Generate Round 1
 12 List with result
 13 Refactoring with Lombok     done

@@ -54,7 +54,7 @@ public class AppController {
   @RequestMapping("/event/save")
   public String saveEvent(Event event) {
 
-    Event newEvent = new Event(event.getName(), event.getDateLocal());
+    Event newEvent = new Event(event.getName(), event.getDateLocal(), event.getRounds());
 
     this.eventLogic.addEvents(newEvent);
     return "redirect:/events";
