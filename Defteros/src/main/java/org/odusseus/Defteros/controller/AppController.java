@@ -2,7 +2,7 @@ package org.odusseus.Defteros.controller;
 
 import org.odusseus.Defteros.entity.Event;
 import org.odusseus.Defteros.entity.Events;
-import org.odusseus.Defteros.logic.EventBusiness;
+import org.odusseus.Defteros.logic.EventLogic;
 
 import org.odusseus.Defteros.entity.Person;
 import org.odusseus.Defteros.entity.Persons;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AppController {
 
   @Autowired
-  EventBusiness business = new EventBusiness();  
+  EventLogic eventLogic = new EventLogic();  
 
   @Autowired
   PersonLogic personLogic = new PersonLogic();  
@@ -35,7 +35,7 @@ public class AppController {
   @RequestMapping("/events")
   public String events(Model model) {
     
-    Events events = this.business.getEvents();
+    Events events = this.eventLogic.getEvents();
     
     model.addAttribute("events", events);		
     
@@ -56,14 +56,14 @@ public class AppController {
 
     Event newEvent = new Event(event.getName(), event.getDateLocal());
 
-    this.business.addEvents(newEvent);
+    this.eventLogic.addEvents(newEvent);
     return "redirect:/events";
   }
 
   @RequestMapping("/event/edit/{id}")
   public ModelAndView showEditFormEvent(@PathVariable(name = "id") int id) {
     ModelAndView mav = new ModelAndView("event/edit_form_event");
-    Event event = this.business.getEvent(id);
+    Event event = this.eventLogic.getEvent(id);
     if (event == null) {
       event = new Event();    }
     
@@ -73,14 +73,14 @@ public class AppController {
 
    @RequestMapping("/event/delete/{id}")
   public String deleteEvent(@PathVariable(name = "id") int id) {
-    this.business.deleteEvent(id);
+    this.eventLogic.deleteEvent(id);
     return "redirect:/events";
   }
 
   @RequestMapping(value = "/event/update", method = RequestMethod.POST)
   public String updateEvent(@ModelAttribute("event") Event event) {
     
-        this.business.updateEvent(event);
+        this.eventLogic.updateEvent(event);
     return "redirect:/events";
   }
 

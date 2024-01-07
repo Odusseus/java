@@ -5,15 +5,19 @@ import java.util.List;
 
 import org.odusseus.Defteros.utils.Utils;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class BaseEntities<T extends BaseEntity> {
-  protected Integer maxId = 0;
-  protected List<T> list = new ArrayList<T>();
+  @Getter 
   protected String filename = "json/" + Utils.getShortClassName(this) + ".json";
 
-  public BaseEntities() {
-    super();
-  }
-  
+  protected List<T> list = new ArrayList<T>();
+
+  @Getter 
+  protected Integer maxId = 0;
+
   public List<T> 
   getList() {
       return this.list;
@@ -50,12 +54,4 @@ public class BaseEntities<T extends BaseEntity> {
 
     baseEntityList.set(index, newBaseEntity);
   }
-
-  public Integer getMaxId(){
-    return this.maxId;
-  }
-
-  public String getFilename(){
-    return this.filename;
-  }  
 }
