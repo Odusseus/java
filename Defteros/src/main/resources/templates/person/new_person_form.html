@@ -17,10 +17,12 @@
           <tr>
             <td>Name:</td>
             <td><input type="text" th:field="*{name}"</td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
           </tr>
           <tr>
             <td>Rating:</td>
-            <td><input type="text" th:field="*{rating}"</td>
+            <td><input type="number" th:field="*{rating}"</td>
+            <td th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}">Rating Error</td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">Save</button> </td>

@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
-public class BaseEntity {
+public class BaseEntityForm {
 	protected Integer id;	
 
 	@NotBlank(message = "Name cannot be empty.")
 	protected String name;
 
-	public BaseEntity(String name) {
+	public BaseEntityForm(String name) {
 		super();
 		this.name = name;
 	}

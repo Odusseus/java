@@ -12,12 +12,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
-public class Event extends BaseEntity{
+public class EventForm extends BaseEntityForm{
 	
 	  @NotNull(message = "Date cannot be empty.")
 	  @DateTimeFormat(pattern = "yyyy-MM-dd")
 	  private Date dateLocal;
-		// private Date date;
 
 		@NotNull(message = "Round cannot be empty.")
 		@Min(2)
@@ -25,7 +24,7 @@ public class Event extends BaseEntity{
     private Integer rounds;
 
 
-	public Event(Integer id, String name, Date dateLocal, Integer rounds) {
+	public EventForm(Integer id, String name, Date dateLocal, Integer rounds) {
 		super();
 		this.id = id;
 		this.name = name;

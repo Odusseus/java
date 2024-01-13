@@ -29,7 +29,7 @@
             <tr th:each="event : ${events.list}">
                 <td th:text="${event.id}">Id</td>
                 <td th:text="${event.name}">Name</td>
-                <td th:text="${event.dateLocal}">Date</td>                
+                <td th:text="${#dates.format(event.dateLocal,'dd-MM-yyyy')}">Date</td>                
                 <td th:text="${event.rounds}">Rounds</td>                
                 <td> 
                     <a th:href="${'/event/edit/' + {event.id}}">Edit</a>

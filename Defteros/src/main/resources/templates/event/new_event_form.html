@@ -11,20 +11,22 @@
         Enter New Event
       </h1>
       <br/>
-      <form action="#" th:action="@{/event/save}" th:object="${event}"
+      <form action="#" th:action="@{/event/save}" th:object="${eventForm}"
         method="post">
         <table border="0" cellpadding="10">
           <tr>
             <td>Name:</td>
             <td><input type="text" th:field="*{name}"</td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
           </tr>
           <tr>
             <td>Date:</td>
-            <td><input type="text" th:field="*{dateLocal}"</td>
+            <td><input type="date" th:field="*{dateLocal}"</td>
           </tr>
           <tr>
             <td>Rounds:</td>
-            <td><input type="text" th:field="*{rounds}"</td>
+            <td><input type="number" step="1" th:field="*{rounds}"</td>
+            <td th:if="${#fields.hasErrors('rounds')}" th:errors="*{rounds}">Rounds Error</td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">Save</button> </td>

@@ -4,7 +4,7 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application
 TODO
 1  Read / Write Events         done
 2  set maxnumber in Events     done
-3  Date to date type
+3  Date to date type           done
 4  Edit Event                  done
 5  delete Event                done
 6  Person CRUD                 done

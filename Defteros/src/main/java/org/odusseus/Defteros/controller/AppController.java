@@ -1,6 +1,7 @@
 package org.odusseus.Defteros.controller;
 
 import org.odusseus.Defteros.entity.Event;
+import org.odusseus.Defteros.entity.EventForm;
 import org.odusseus.Defteros.entity.Events;
 import org.odusseus.Defteros.logic.EventLogic;
 
@@ -11,11 +12,14 @@ import org.odusseus.Defteros.logic.PersonLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import jakarta.validation.Valid;
 
 @Controller
 public class AppController {
@@ -45,16 +49,20 @@ public class AppController {
   @RequestMapping("/event/new")
   public String newEvent(Model model) {
     
-    Event event = new Event();		
-    model.addAttribute("event", event);		
+    EventForm eventForm = new EventForm();		
+    model.addAttribute("eventForm", eventForm);		
     
     return "event/new_event_form";
   }
 
   @RequestMapping("/event/save")
-  public String saveEvent(Event event) {
+  public String saveEvent(@Valid EventForm eventForm, BindingResult bindingResult) {
 
-    Event newEvent = new Event(event.getName(), event.getDateLocal(), event.getRounds());
+    if(bindingResult.hasErrors()){
+      return "event/new_event_form";
+    }
+
+    Event newEvent = new Event(eventForm.getId(), eventForm.getName(), eventForm.getDateLocal(), eventForm.getRounds());
 
     this.eventLogic.addEvents(newEvent);
     return "redirect:/events";
@@ -62,27 +70,34 @@ public class AppController {
 
   @RequestMapping("/event/edit/{id}")
   public ModelAndView showEditFormEvent(@PathVariable(name = "id") int id) {
-    ModelAndView mav = new ModelAndView("event/edit_form_event");
+    ModelAndView mav = new ModelAndView("event/edit_event_form");
     Event event = this.eventLogic.getEvent(id);
+    EventForm eventForm = null;
     if (event == null) {
-      event = new Event();    }
-    
-    mav.addObject("event", event);
+      eventForm = new EventForm();
+      } else {
+        eventForm = new EventForm(event.getId(), event.getName(), event.getDateLocal(), event.getRounds());
+      }    
+    mav.addObject("eventForm", eventForm);
     return mav;
   }
-
-   @RequestMapping("/event/delete/{id}")
-  public String deleteEvent(@PathVariable(name = "id") int id) {
-    this.eventLogic.deleteEvent(id);
-    return "redirect:/events";
-  }
-
+  
   @RequestMapping(value = "/event/update", method = RequestMethod.POST)
-  public String updateEvent(@ModelAttribute("event") Event event) {
+  public String updateEvent(@Valid @ModelAttribute("eventForm") EventForm eventForm, BindingResult bindingResult) {
+    if(bindingResult.hasErrors()){
+      return "event/edit_event_form";
+    }
     
-        this.eventLogic.updateEvent(event);
+    Event event = new Event(eventForm.getId(), eventForm.getName(), eventForm.getDateLocal(), eventForm.getRounds());
+    this.eventLogic.updateEvent(event);
     return "redirect:/events";
   }
+
+  @RequestMapping("/event/delete/{id}")
+  public String deleteEvent(@PathVariable(name = "id") int id) {
+   this.eventLogic.deleteEvent(id);
+   return "redirect:/events";
+ }
 
   @RequestMapping("/persons")
   public String persons(Model model) {
@@ -104,7 +119,11 @@ public class AppController {
   }
 
   @RequestMapping("/person/save")
-  public String savePerson(Person person) {
+  public String savePerson(@Valid @ModelAttribute("Person") Person person, BindingResult bindingResult) {
+
+    if(bindingResult.hasErrors()){
+      return "person/new_person_form";
+    }
 
     Person newPerson = new Person(person.getName(), person.getRating());
 
@@ -114,7 +133,7 @@ public class AppController {
 
   @RequestMapping("/person/edit/{id}")
   public ModelAndView showEditFormPerson(@PathVariable(name = "id") int id) {
-    ModelAndView mav = new ModelAndView("person/edit_form_person");
+    ModelAndView mav = new ModelAndView("person/edit_person_form");
     Person person = this.personLogic.getPerson(id);
     if (person == null) {
       person = new Person();    }
@@ -123,17 +142,22 @@ public class AppController {
     return mav;
   }
 
-   @RequestMapping("/person/delete/{id}")
-  public String deletePerson(@PathVariable(name = "id") int id) {
-    this.personLogic.deletePerson(id);
+  
+  @RequestMapping(value = "/person/update", method = RequestMethod.POST)
+  public String updatePerson(@Valid @ModelAttribute("person") Person person, BindingResult bindingResult) {
+    
+    if(bindingResult.hasErrors()){
+      return "person/edit_person_form";
+    }
+    
+    this.personLogic.updatePerson(person);
     return "redirect:/persons";
   }
 
-  @RequestMapping(value = "/person/update", method = RequestMethod.POST)
-  public String updatePerson(@ModelAttribute("person") Person person) {
-    
-        this.personLogic.updatePerson(person);
-    return "redirect:/persons";
+  @RequestMapping("/person/delete/{id}")
+  public String deletePerson(@PathVariable(name = "id") int id) {
+   this.personLogic.deletePerson(id);
+   return "redirect:/persons";
   }
 }
 
