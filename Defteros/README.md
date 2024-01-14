@@ -1,5 +1,7 @@
 https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application-with-jdbc-thymeleaf-oracle
-
+https://springhow.com/thymeleaf-fragments/
+https://studygyaan.com/spring-boot/fragments-in-thymeleaf
+https://www.appsloveworld.com/springmvc/100/52/dynamic-html-page-in-thymeleaf-spring-based-on-selected-option-in-drop-down-men
 
 TODO
 1  Read / Write Events         done
@@ -10,8 +12,9 @@ TODO
 6  Person CRUD                 done
 7  Person to Generic           done
 8  Event to Generic            done
-9  Coupling persons to events
+9  Associate persons to events
 10 Add number of rounds        done
 11 Generate Round 1
 12 List with result
 13 Refactoring with Lombok     done
+

@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Edit Person</title>
+    <link rel="stylesheet" th:href="@{/css/defteros.css}">
   </head>
   <body>
     <div align="center">
@@ -34,7 +35,14 @@
         </tr>
         </table>
       </form>
-
+      <div class="button-block">
+        <div class="button-block-inline" style="display:inline-block;">
+          <a href="/persons" class="button">Cancel</a>
+        </div>
+        <div style="display:inline-block;">
+          <a href="person/persons.html" th:href="@{/person/delete/{id}(id=${personForm.id})}" class="button">Delete</a>
+        </div>
+      </div>
     </div>
   </body>
 
