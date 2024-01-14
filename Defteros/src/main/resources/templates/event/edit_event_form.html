@@ -46,7 +46,11 @@
           <a href="/events" class="button">Cancel</a>
         </div>
         <div style="display:inline-block;">
-          <a href="event/events.html" th:href="@{/event/delete/{id}(id=${eventForm.id})}" class="button">Delete</a>
+          <a href="event/events.html" th:href="@{/event/delete/{id}(id=${eventForm.id})}" class="button"
+          th:data-confirm-delete="|Are you sure you want to delete ${eventForm.name}?|"
+          onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+          >
+            Delete</a>
         </div>
       </div>
     </div>

@@ -43,7 +43,10 @@
                     <a th:href="${'/event/edit/' + {event.id}}">Edit</a>
                 </td>                
                 <td> 
-                    <a th:href="${'/event/delete/' + {event.id}}">Delete</a>
+                    <a th:href="${'/event/delete/' + {event.id}}"
+                    th:data-confirm-delete="|Are you sure you want to delete ${event.name}?|"
+                        onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                    >Delete</a>
                 </td>                
             </tr>
         </tbody>

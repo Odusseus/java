@@ -2,6 +2,7 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application
 https://springhow.com/thymeleaf-fragments/
 https://studygyaan.com/spring-boot/fragments-in-thymeleaf
 https://www.appsloveworld.com/springmvc/100/52/dynamic-html-page-in-thymeleaf-spring-based-on-selected-option-in-drop-down-men
+https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf
 
 TODO
 1  Read / Write Events         done
