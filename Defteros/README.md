@@ -3,6 +3,9 @@ https://springhow.com/thymeleaf-fragments/
 https://studygyaan.com/spring-boot/fragments-in-thymeleaf
 https://www.appsloveworld.com/springmvc/100/52/dynamic-html-page-in-thymeleaf-spring-based-on-selected-option-in-drop-down-men
 https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf
+https://aws.amazon.com/blogs/opensource/getting-started-with-spring-boot-on-aws-part-1/
+https://stratospheric.dev/#content
+
 
 TODO
 1  Read / Write Events         done
