@@ -9,6 +9,8 @@ https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thym
 https://aws.amazon.com/blogs/opensource/getting-started-with-spring-boot-on-aws-part-1/
 https://stratospheric.dev/#content
 
+https://www.digitalocean.com/community/tutorials/spring-4-security-mvc-login-logout-example
+
 
 TODO
 1  Read / Write Events         done
@@ -24,4 +26,5 @@ TODO
 11 Generate Round 1
 12 List with result
 13 Refactoring with Lombok     done
+14 Autorisation
 
