@@ -1,3 +1,6 @@
+
+[Defteros site: ](http://ec2-18-195-116-207.eu-central-1.compute.amazonaws.com:8080/)
+
 https://www.codejava.net/frameworks/spring-boot/spring-boot-crud-web-application-with-jdbc-thymeleaf-oracle
 https://springhow.com/thymeleaf-fragments/
 https://studygyaan.com/spring-boot/fragments-in-thymeleaf
