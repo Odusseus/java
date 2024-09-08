@@ -20,4 +20,3 @@ https://www.codejava.net/frameworks/spring-boot/spring-boot-form-handling-tutori
 
 mvn spring-boot:run 
 
-test
