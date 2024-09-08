@@ -19,3 +19,5 @@ Read: https://www.thymeleaf.org/doc/articles/thvsjsp.html
 https://www.codejava.net/frameworks/spring-boot/spring-boot-form-handling-tutorial-with-spring-form-tags-and-jsp
 
 mvn spring-boot:run 
+
+test
