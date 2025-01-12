@@ -10,6 +10,11 @@ https://aws.amazon.com/blogs/opensource/getting-started-with-spring-boot-on-aws-
 https://stratospheric.dev/#content
 
 https://www.digitalocean.com/community/tutorials/spring-4-security-mvc-login-logout-example
+https://www.amazon.nl/Spring-Boot-Framework-professionellen-Enterprise-Anwendungen/dp/3836290499/ref=sr_1_2?__mk_nl_NL=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=H6KUS0C1PMV3&dib=eyJ2IjoiMSJ9.7ibH5MhyvJmMhztimNMhvBVHpyCGWlYzx9n6j0Eaz28sgHXMAL1-nRSoJhcKrEaaCiwRpbRm4rAJ7WwHmhMzMPjLbAIODja31OxyiLggGWWZpux1Hv25n1SBSJnjWJ96x8P8iIJYDDaHOCNTmankjA.8R02u9YrMgWGpO4JlfULLPNWTPKA8JK3gXvyx_pmfdA&dib_tag=se&keywords=christian+ullenboom&qid=1736714909&sprefix=christian+ullenboom%2Caps%2C139&sr=8-2
+
+https://www.codejava.net/frameworks/spring-boot/form-authentication-with-in-memory-users
+
+starten : http://localhost:8080
 
 
 TODO
