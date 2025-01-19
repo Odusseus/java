@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Login - My Contacts</title>
+	<link rel="stylesheet" href="/css/defteros.css">
+</head>
+<body>
+	<div>
+		<div>
+			<h2>Spring Security Login Form</h2>
+		</div>
+		<div th:if="${param.error}">
+			<h3>Invalid username and password</h3>
+		</div>
+		<div th:if="${param.logout}">
+			<h3>You have been logget out.</h3>
+		</div>
+		<div>
+			<form th:action="@{/login}" method="post">
+				<div><label>Username: </label><input type="text" name="u"/></div>
+				<div><label>Password: </label><input type="text" name="p"/></div>
+				<div><input type="submit" value="Login"/></div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

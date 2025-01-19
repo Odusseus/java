@@ -5,12 +5,7 @@ import org.odusseus.Defteros.entity.EventForm;
 import org.odusseus.Defteros.entity.Events;
 import org.odusseus.Defteros.logic.EventLogic;
 
-import org.odusseus.Defteros.entity.Person;
-import org.odusseus.Defteros.entity.Persons;
-import org.odusseus.Defteros.logic.PersonLogic;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,12 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.thymeleaf.Thymeleaf;
-import org.thymeleaf.spring6.view.ThymeleafView;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class EventController {
