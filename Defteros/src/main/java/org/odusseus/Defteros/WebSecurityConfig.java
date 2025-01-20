@@ -24,13 +24,13 @@ public class WebSecurityConfig {
 	@Bean
 	protected UserDetailsService userDetailsService() {
 		UserDetails user1 = User
-				.withUsername("namhm")
-				.password("$2a$10$sWszOXuTlN0amQi8vXp4cerb.tJUQo.4FzLAnTCsSqChsYhlLdQWW")
+				.withUsername("pascal")
+				.password("$2a$10$APOeRd5w1AsyqBH68GZ2t.JuEsQ5QKB8D5rFmVea1uCsZcQucArdy")
 				.roles("USER")
 				.build();
 		UserDetails user2 = User
 				.withUsername("admin")
-				.password("$2a$10$PH0p2x2x8oi5bKx.80Bt7ubMAiHdZnqm9TC/Cpss9VoccyTYw1AoC")
+				.password("$2a$10$ofA6BiT1Wcmo3rXtyE5AjOVBOrSi6iDtIJZ09HmEsbwyIju.vvLxG")
 				.roles("ADMIN")
 				.build();		
 		

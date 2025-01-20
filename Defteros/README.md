@@ -31,5 +31,5 @@ TODO
 11 Generate Round 1
 12 List with result
 13 Refactoring with Lombok     done
-14 Autorisation
-15 Move  C:\Users\hp\Project\java\Defteros> to c:\Project\java\Defteros>
+14 Autorisation Basic          done
+15 Move  C:\Users\hp\Project\java\Defteros> to c:\Project\java\Defteros> Done

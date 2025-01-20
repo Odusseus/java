@@ -1,5 +1,6 @@
 package org.odusseus.Defteros;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -23,5 +24,13 @@ public class UtilsTests {
     Event event = new Event();
     String assertName = Utils.getShortClassName(event);
     assertTrue( assertName.equals("Event"));
+  }
+
+  @Test
+  public void getBCryptPassword_Return_String(){
+    String passwordString = "Hond";
+    String assertBCryptPassword = Utils.getBCryptPassword(passwordString);
+    assertNotNull(assertBCryptPassword);
+    System.out.println("Password:" + assertBCryptPassword);
   }
 }
