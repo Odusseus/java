@@ -42,7 +42,7 @@ public class PersonController {
   }
 
   @RequestMapping("/person/save")
-  public String savePerson(@Valid @ModelAttribute("Person") Person person, BindingResult bindingResult) {
+  public String savePerson(@Valid @ModelAttribute("person") Person person, BindingResult bindingResult) {
 
     if(bindingResult.hasErrors()){
       return "person/new_person_form";

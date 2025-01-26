@@ -1,6 +1,7 @@
 package org.odusseus.Defteros.logic;
 
 import org.odusseus.Defteros.entity.Users;
+import org.odusseus.Defteros.utils.Utils;
 import org.odusseus.Defteros.dao.UsersDAO;
 import org.odusseus.Defteros.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,23 +14,22 @@ public class UserLogic {
   private UsersDAO UsersDAO;
 
   public Users getUsers() {		
-    Users Users = this.UsersDAO.read();
-    return Users;
+    Users users = this.UsersDAO.read();
+    return users;
   }
 
-  public void addUsers(User User) {
-    this.UsersDAO.saveEntity(User);
+  public void addUsers(User user) {
+    this.UsersDAO.saveEntity(user);
   }
 
   public User getUser(Integer id) {		
-    Users Users = this.UsersDAO.read();
+    Users users = this.UsersDAO.read();
   
-    for (User User : Users.getList()) {
-      if (User.getId() == id){
-        return User;
+    for (User user : users.getList()) {
+      if (user.getId() == id){
+        return user;
       }
-    }
-    
+    }    
     return null;
   }	
 
@@ -38,8 +38,10 @@ public class UserLogic {
     return;
   }
 
-  public void updateUser(User User) {
-    this.UsersDAO.updateEntity(User);
+  public void updateUser(User user) {
+    user.setPassword(user.getPassword().replaceAll(".", "*"));	
+    user.setPasswordEncrypted(Utils.getBCryptPassword(user.getPassword()));
+    this.UsersDAO.updateEntity(user);
     return;
   }
 

@@ -27,7 +27,7 @@
             
           </tr>
           <tr>
-            <td>Rating:</td>
+            <td>Password:</td>
             <td><input type="text" th:field="*{password}"</td>
             <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
           </tr>
@@ -41,8 +41,8 @@
           <a href="/users" class="button">Cancel</a>
         </div>
         <div style="display:inline-block;">
-          <a href="user/users.html" th:href="@{/user/delete/{id}(id=${userForm.id})}" class="button"
-          th:data-confirm-delete="|Are you sure you want to delete ${userForm.name}?|"
+          <a href="user/users.html" th:href="@{/user/delete/{id}(id=${user.id})}" class="button"
+          th:data-confirm-delete="|Are you sure you want to delete ${user.name}?|"
           onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
           >
           Delete</a>

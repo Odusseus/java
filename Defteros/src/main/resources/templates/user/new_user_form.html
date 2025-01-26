@@ -22,13 +22,22 @@
             <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
           </tr>
           <tr>
-            <td>Rating:</td>
+            <td>Password:</td>
             <td><input type="text" th:field="*{password}"></td>
             <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
           </tr>
-          <tr>
-            <td>Rating:</td>
+          <!-- <tr>
+            <td>Role:</td>
             <td><input type="text" th:field="*{roleType}"></td>
+            <td th:if="${#fields.hasErrors('roleType')}" th:errors="*{roleType}">Roletype Error</td> 
+            </tr> -->
+          <tr>
+            <td>Role:</td>
+            <td>
+              <select name="roleType">
+                <option th:each="roleTypeOpt : ${T(org.odusseus.Defteros.entity.RoleType).values()}"
+                  th:value="${roleTypeOpt}" th:text="${roleTypeOpt.displayValue}"></option> 
+              </select>
             <td th:if="${#fields.hasErrors('roleType')}" th:errors="*{roleType}">Roletype Error</td>
           </tr>
           <tr>

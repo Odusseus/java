@@ -41,14 +41,14 @@ public class UserController {
     return "user/new_user_form";
   }
 
-  @RequestMapping("/ser/save")
-  public String saveUser(@Valid @ModelAttribute("user") User User, BindingResult bindingResult) {
+  @RequestMapping("/user/save")
+  public String saveUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
     if(bindingResult.hasErrors()){
       return "user/new_user_form";
     }
 
-    User newUser = new User(User.getName(), User.getPassword(), User.getRoleType());
+    User newUser = new User(user.getName(), user.getPassword(), user.getRoleType());
 
     this.UserLogic.addUsers(newUser);
     return "redirect:/users";
@@ -59,7 +59,10 @@ public class UserController {
     ModelAndView mav = new ModelAndView("user/edit_user_form");
     User user = this.UserLogic.getUser(id);
     if (user == null) {
-      user = new User();    }
+      user = new User();
+    }
+
+    user.setPassword(null);
     
     mav.addObject("user", user);
     return mav;
