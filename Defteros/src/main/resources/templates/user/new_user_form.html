@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>New User</title>
+    <link rel="stylesheet" th:href="@{/css/defteros.css}">
+  </head>
+  <body>
+    <div align="center">
+      <h1>
+        Enter New User
+      </h1>
+      <br/>
+      <form action="#" th:action="@{/user/save}" th:object="${user}"
+        method="post">
+        <table border="0" cellpadding="10">
+          <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+          </tr>
+          <tr>
+            <td>Rating:</td>
+            <td><input type="text" th:field="*{password}"></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+          </tr>
+          <tr>
+            <td>Rating:</td>
+            <td><input type="text" th:field="*{roleType}"></td>
+            <td th:if="${#fields.hasErrors('roleType')}" th:errors="*{roleType}">Roletype Error</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button type="submit">Save</button> 
+              <a href="/users" class="button">Cancel</a>
+            </td>
+        </tr>
+        </table>
+      </form>
+
+    </div>
+  </body>
+
+</html>

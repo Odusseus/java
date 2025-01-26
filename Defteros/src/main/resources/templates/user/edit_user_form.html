@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8" />
-    <title>Edit Person</title>
+    <title>Edit User</title>
     <link rel="stylesheet" th:href="@{/css/defteros.css}">
   </head>
   <body>
     <div align="center">
       <h1>
-        Edit Person
+        Edit User
       </h1>
       <br/>
-      <form action="#" th:action="@{/person/update}" th:object="${person}"
+      <form action="#" th:action="@{/user/update}" th:object="${user}"
         method="post">
         <table border="0" cellpadding="10">
           <tr>
@@ -27,8 +28,8 @@
           </tr>
           <tr>
             <td>Rating:</td>
-            <td><input type="number" th:field="*{rating}"</td>
-            <td th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}">Rating Error</td>
+            <td><input type="text" th:field="*{password}"</td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">Save</button> </td>
@@ -37,11 +38,11 @@
       </form>
       <div class="button-block">
         <div class="button-block-inline" style="display:inline-block;">
-          <a href="/persons" class="button">Cancel</a>
+          <a href="/users" class="button">Cancel</a>
         </div>
         <div style="display:inline-block;">
-          <a href="person/persons.html" th:href="@{/person/delete/{id}(id=${personForm.id})}" class="button"
-          th:data-confirm-delete="|Are you sure you want to delete ${eventForm.name}?|"
+          <a href="user/users.html" th:href="@{/user/delete/{id}(id=${userForm.id})}" class="button"
+          th:data-confirm-delete="|Are you sure you want to delete ${userForm.name}?|"
           onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
           >
           Delete</a>
@@ -49,5 +50,4 @@
       </div>
     </div>
   </body>
-
 </html>

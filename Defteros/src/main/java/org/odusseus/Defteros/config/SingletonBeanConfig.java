@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 
 import org.odusseus.Defteros.dao.EventsDAO;
 import org.odusseus.Defteros.dao.PersonsDAO;
+import org.odusseus.Defteros.dao.UsersDAO;
 
 @Configuration
 public class SingletonBeanConfig {
@@ -21,5 +22,11 @@ public class SingletonBeanConfig {
   @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
   public PersonsDAO personsDAO() {
       return new PersonsDAO();
+  }
+
+  @Bean
+  @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+  public UsersDAO usersDAO() {
+      return new UsersDAO();
   }
 }

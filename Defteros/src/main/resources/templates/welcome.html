@@ -10,6 +10,7 @@
 	<h2 th:inline="text"> Welcome <span sec:authentication="principal.username"></span></h2>
 	<div sec:authorize="hasRole('ADMIN')">
 		<a href="/cpanel">Admin CPanel</a>
+		<a href="/users">Users</a>
 	</div>
 	<form th:action="@{/logout}" method="post">
 		<input type="submit" value="logout" />

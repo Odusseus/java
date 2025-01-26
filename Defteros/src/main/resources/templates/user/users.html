@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Users</title>
+    <link rel="stylesheet" th:href="@{/css/defteros.css}">
+</head>
+<body>
+	<h1 align="center">Users</h1>
+    <br/>
+    <a href="/">Home</a>
+  <br/>
+	<br/>
+      <a href="/user/new">Enter New User</a>
+    <br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Id <span th:text="${users.maxId}">id</span></th>
+                <th>Name</th>                
+                <th>Password</th>                
+                <th>PasswordEncrypted</th>                
+                <th>Role</th>                
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users.list}">
+                <td th:text="${user.id}">Id</td>
+                <td th:text="${user.name}">Name</td>                
+                <td th:text="${user.password}">Password</td>                
+                <td th:text="${user.passwordEncrypted}">Password Encrypted</td>                
+                <td th:text="${user.role}">Role</td>                
+                <td> 
+                    <a th:href="${'/user/edit/' + {user.id}}">Edit</a>
+                </td>                
+                <td> 
+                    <a th:href="${'/user/delete/' + {user.id}}"
+                    th:data-confirm-delete="|Are you sure you want to delete ${user.name}?|"
+                        onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                    >Delete</a>
+                </td>                
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

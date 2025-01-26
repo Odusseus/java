@@ -27,10 +27,18 @@ public class UtilsTests {
   }
 
   @Test
-  public void getBCryptPassword_Return_String(){
-    String passwordString = "Hond";
+  public void getBCryptPassword_Return_String_for_pascal(){
+    String passwordString = "pascal";
     String assertBCryptPassword = Utils.getBCryptPassword(passwordString);
     assertNotNull(assertBCryptPassword);
-    System.out.println("Password:" + assertBCryptPassword);
+    System.out.println("Password:" + passwordString + "/" + assertBCryptPassword);
+  }
+
+  @Test
+  public void getBCryptPassword_Return_String_for_admin(){
+    String passwordString = "admin";
+    String assertBCryptPassword = Utils.getBCryptPassword(passwordString);
+    assertNotNull(assertBCryptPassword);
+    System.out.println("Password:" + passwordString + "/" + assertBCryptPassword); 
   }
 }
