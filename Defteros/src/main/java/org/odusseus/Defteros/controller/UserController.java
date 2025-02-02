@@ -1,9 +1,6 @@
 package org.odusseus.Defteros.controller;
 
-import javax.management.ObjectName;
-
 import org.odusseus.Defteros.UserService;
-//import org.odusseus.Defteros.UserService;
 import org.odusseus.Defteros.entity.User;
 import org.odusseus.Defteros.entity.Users;
 import org.odusseus.Defteros.logic.UserLogic;
@@ -13,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,9 +57,9 @@ public class UserController {
       return "user/new_user_form";
     }
 
-    boolean hasExists = this.UserLogic.getUsers().hasExists(user.getName());
+    boolean hasExists = this.UserLogic.getUsers().hasExistsIgnoreCase(user.getName());
     if(hasExists){
-      FieldError fieldError = new FieldError("user", "name", "Duplicate name");
+      FieldError fieldError = new FieldError("user", "name", user.getName(), false, null, null, "Duplicate name");
       bindingResult.addError(fieldError);
       return "user/new_user_form";
     }
