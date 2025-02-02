@@ -16,6 +16,12 @@ https://www.codejava.net/frameworks/spring-boot/form-authentication-with-in-memo
 
 starten : http://localhost:8080
 
+> netstat -ano | findstr 8080
+  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       18440
+  TCP    [::]:8080              [::]:0                 LISTENING       18440
+
+>taskkill /F /PID 18440
+
 
 TODO
 1  Read / Write Events         done

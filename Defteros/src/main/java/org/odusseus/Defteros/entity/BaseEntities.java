@@ -54,4 +54,23 @@ public class BaseEntities<T extends BaseEntity> {
 
     baseEntityList.set(index, newBaseEntity);
   }
+
+  public boolean hasExists (String name)
+  {
+    Integer index = 0;
+    boolean isFound = false;
+    List<T> baseEntityList = this.getList();
+
+    for (T baseEntity : baseEntityList) {
+      if(baseEntity.getName().equals(name)){
+        isFound = true;
+        break;
+      }
+      index ++;
+    }     
+
+    return isFound;
+  }
+
+
 }

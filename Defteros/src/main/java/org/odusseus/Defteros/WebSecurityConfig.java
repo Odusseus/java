@@ -1,64 +1,93 @@
 package org.odusseus.Defteros;
 
+import java.util.List;
+
+import org.odusseus.Defteros.entity.Users;
+import org.odusseus.Defteros.logic.UserLogic;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 //import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 // import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
+@EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfig {
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-	protected UserDetailsService userDetailsService() {
-		UserDetails user1 = User
-				.withUsername("pascal")
-				.password("$2a$10$70xm5GBxf73pnuEjRPlvmOycEYHdcVlktIsrLKw8wAzDd9UrWmYvG")
-				.roles("USER")
-				.build();
-		UserDetails user2 = User
-				.withUsername("admin")
-				.password("$2a$10$rKPuJYPAo9blKNud3T6L1e2AUvI8Fbg0QqzBd/KWbMW0Rq3hrD/S.")
-				.roles("ADMIN")
-				.build();		
-		
-		return new InMemoryUserDetailsManager(user1, user2);
-	}
+    @Autowired
+      UserLogic userLogic = new UserLogic();  
 
-	// @Override
-	// protected void configure(HttpSecurity http) throws Exception {
-	// 	http
-	// 		.authorizeRequests().antMatchers("/", "/home").permitAll()
-	// 		.mvcMatchers("/cpanel").hasRole("ADMIN")
-	// 		.anyRequest().authenticated()
-	// 		.and()
-	// 		.formLogin()
-	// 			.loginPage("/login")		
-	// 			.usernameParameter("u").passwordParameter("p")				
-	// 			.permitAll()
-	// 			.failureUrl("/loginerror")
-	// 			.defaultSuccessUrl("/loginsuccess")
-	// 			.and()
-	// 		.logout().permitAll()
-	// 		.logoutSuccessUrl("/logoutsuccess")
-	// 		.and()
-	// 		.exceptionHandling().accessDeniedPage("/403");
-		
-	// }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    protected InMemoryUserDetailsManager inMemoryUserDetailsManager() {
+        // UserDetails user1 = User
+        // 		.withUsername("pascal")
+        // 		.password("$2a$10$70xm5GBxf73pnuEjRPlvmOycEYHdcVlktIsrLKw8wAzDd9UrWmYvG")
+        // 		.roles("USER")
+        // 		.build();
+        UserDetails admin = User
+                .withUsername("admin")
+                .password("$2a$10$rKPuJYPAo9blKNud3T6L1e2AUvI8Fbg0QqzBd/KWbMW0Rq3hrD/S.")
+                .roles("ADMIN")
+                .build();	
+        InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager(admin);
+        
+        Users users = userLogic.getUsers();
+        List<org.odusseus.Defteros.entity.User> userList = users.getList();
 
-	@Bean
+        breakLoop:
+            for(org.odusseus.Defteros.entity.User user : userList)
+            {
+                if (user == null) break breakLoop; 
+                UserDetails userDetails = User.withUsername(user.getName())
+                                        .password(user.getPasswordEncrypted())
+                                        .roles(user.getRoleType().toString())
+                                        .build();
+
+                inMemoryUserDetailsManager.createUser(userDetails);
+            };	
+            
+        return inMemoryUserDetailsManager;
+    }
+
+    // @Override
+    // protected void configure(HttpSecurity http) throws Exception {
+    // 	http
+    // 		.authorizeRequests().antMatchers("/", "/home").permitAll()
+    // 		.mvcMatchers("/cpanel").hasRole("ADMIN")
+    // 		.anyRequest().authenticated()
+    // 		.and()
+    // 		.formLogin()
+    // 			.loginPage("/login")		
+    // 			.usernameParameter("u").passwordParameter("p")				
+    // 			.permitAll()
+    // 			.failureUrl("/loginerror")
+    // 			.defaultSuccessUrl("/loginsuccess")
+    // 			.and()
+    // 		.logout().permitAll()
+    // 		.logoutSuccessUrl("/logoutsuccess")
+    // 		.and()
+    // 		.exceptionHandling().accessDeniedPage("/403");
+        
+    // }
+
+    @Bean
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(
