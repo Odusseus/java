@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<title>My Contacts - Spring Boot Web Application Example</title>
-	<link rel="stylesheet" href="/css/defteros.css">
+    <meta charset="utf-8">
+    <title>My Contacts - Spring Boot Web Application Example</title>
+    <link rel="stylesheet" href="/css/defteros.css">
 </head>
 <body>
 <div style="text-align: center;">
-	<h2 th:inline="text"> Welcome <span sec:authentication="principal.username"></span></h2>
-	<div sec:authorize="hasRole('ADMIN')">
-		<a href="/cpanel">Admin CPanel</a>
-		<a href="/users">Users</a>
-	</div>
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="logout" />
-	</form>
+    <h2 th:inline="text"> Welcome <span sec:authentication="principal.username"></span></h2>
+    <div sec:authorize="hasRole('ADMIN')">
+        <a href="/cpanel">Admin CPanel</a>
+        <a href="/users">Users</a>
+    </div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="logout" />
+    </form>
 </div>
         
-	<h3>Events</h3>
-	<a href="events">Click here to all events</a>
-	<h3>Persons</h3>
-	<a href="persons">Click here to all persons</a>
+    <h3>Events</h3>
+    <a href="events">Click here to all events</a>
+    <h3>Persons</h3>
+    <a href="persons">Click here to all persons</a>
 </body>
 </html>

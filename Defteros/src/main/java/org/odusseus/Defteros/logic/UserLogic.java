@@ -47,7 +47,8 @@ public class UserLogic {
     }
 
     user.setPasswordEncrypted(Utils.getBCryptPassword(user.getPassword()));
-    user.setPassword(user.getPassword().replaceAll(".", "*"));	
+    user.setPassword(user.getPassword().replaceAll(".", "*"));
+    	
     this.UsersDAO.updateEntity(user);
     return null;
   }

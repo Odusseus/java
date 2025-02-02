@@ -5,6 +5,11 @@
 <title>Admin CPanel</title>
 </head>
 <body>
-	<h1>Admin CPanel</h1>	
+    <h1>Admin CPanel</h1>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="logout" />
+        </form>
+    </div>
 </body>
 </html>

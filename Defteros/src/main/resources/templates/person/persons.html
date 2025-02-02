@@ -11,7 +11,11 @@
 	<h1 align="center">Persons</h1>
     <br/>
     <a href="/welcome">Home</a>
-  <br/>
+    <div>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="logout" />
+		</form>
+	</div>
 	<br/>
       <a href="/person/new">Enter New Person</a>
     <br/>

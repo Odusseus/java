@@ -68,10 +68,7 @@ public class UserController {
 
     this.UserLogic.addUsers(newUser);
 
-    // TODO verplatsen naar de logic
-
     this.userService.addUser(newUser.getName(), newUser.getPasswordEncrypted(), newUser.getRoleType().toString());
-
 
     return "redirect:/users";
   }
