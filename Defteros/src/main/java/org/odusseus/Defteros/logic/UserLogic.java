@@ -6,6 +6,7 @@ import org.odusseus.Defteros.dao.UsersDAO;
 import org.odusseus.Defteros.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.FieldError;
 
 @Component
 public class UserLogic {
@@ -38,11 +39,17 @@ public class UserLogic {
     return;
   }
 
-  public void updateUser(User user) {
+  public FieldError updateUser(User user) {
+    if(getUsers().hasExistsIgnoreCase(user.getId(), user.getName()))
+    {
+      FieldError fieldError = new FieldError("user", "name", user.getName(), false, null, null, "Duplicate name");
+      return fieldError;
+    }
+
     user.setPasswordEncrypted(Utils.getBCryptPassword(user.getPassword()));
     user.setPassword(user.getPassword().replaceAll(".", "*"));	
     this.UsersDAO.updateEntity(user);
-    return;
+    return null;
   }
 
 }

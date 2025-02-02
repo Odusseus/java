@@ -98,7 +98,13 @@ public class UserController {
       return "user/edit_user_form";
     }
     
-    this.UserLogic.updateUser(user);
+    FieldError fieldError = this.UserLogic.updateUser(user);
+
+    if(fieldError != null)
+    {
+      bindingResult.addError(fieldError);
+      return "user/edit_user_form";
+    }
 
     this.userService.updateUser(user.getName(), user.getPasswordEncrypted(), user.getRoleType().toString());
 

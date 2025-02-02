@@ -72,5 +72,24 @@ public class BaseEntities<T extends BaseEntity> {
     return isFound;
   }
 
+  public boolean hasExistsIgnoreCase(Integer id, String name)
+  {
+    Integer index = 0;
+    boolean isFound = false;
+    List<T> baseEntityList = this.getList();
+
+    for (T baseEntity : baseEntityList) {
+      if(baseEntity.getName().equalsIgnoreCase(name)
+        && baseEntity.getId() != id){
+        isFound = true;
+        break;
+      }
+      index ++;
+    }     
+
+    return isFound;
+  }
+
+
 
 }

@@ -32,14 +32,9 @@ public class WebSecurityConfig {
     
     @Bean
     protected InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-        // UserDetails user1 = User
-        // 		.withUsername("pascal")
-        // 		.password("$2a$10$70xm5GBxf73pnuEjRPlvmOycEYHdcVlktIsrLKw8wAzDd9UrWmYvG")
-        // 		.roles("USER")
-        // 		.build();
         UserDetails admin = User
                 .withUsername("admin")
-                .password("$2a$10$rKPuJYPAo9blKNud3T6L1e2AUvI8Fbg0QqzBd/KWbMW0Rq3hrD/S.")
+                .password("$2a$10$vhU9c3qneozDqvaI2fdG6OTlNimFq1Hg7y8sfNr6d7ZNYsti3WLKm")
                 .roles("ADMIN")
                 .build();	
         InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager(admin);
