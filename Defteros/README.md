@@ -32,10 +32,12 @@ TODO
 6  Person CRUD                 done
 7  Person to Generic           done
 8  Event to Generic            done
-9  Associate persons to events
+9  Associate persons to events todo
 10 Add number of rounds        done
-11 Generate Round 1
-12 List with result
+11 Generate Round 1            todo 
+12 List with result            todo
 13 Refactoring with Lombok     done
 14 Autorisation Basic          done
 15 Move  C:\Users\hp\Project\java\Defteros> to c:\Project\java\Defteros> Done
+16 My calender incl birthday   TODO
+17 My memo                     TODO
