@@ -34,7 +34,7 @@ public class WebSecurityConfig {
     protected InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         UserDetails admin = User
                 .withUsername("admin")
-                .password("$2a$10$vhU9c3qneozDqvaI2fdG6OTlNimFq1Hg7y8sfNr6d7ZNYsti3WLKm")
+                .password("$2a$10$c5518mi.469TuB/.P6xJq.lp1poY8N/l7U0FiQoJURdwy.CkgsZXi")
                 .roles("ADMIN")
                 .build();	
         InMemoryUserDetailsManager inMemoryUserDetailsManager = new InMemoryUserDetailsManager(admin);

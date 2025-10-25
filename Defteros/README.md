@@ -1,3 +1,7 @@
+Defteros : Second / Tweede
+Pascal Boittin
+26-12-2023
+
 
 [Defteros site: ](http://ec2-18-195-116-207.eu-central-1.compute.amazonaws.com:8080/)
 
@@ -39,5 +43,5 @@ TODO
 13 Refactoring with Lombok     done
 14 Autorisation Basic          done
 15 Move  C:\Users\hp\Project\java\Defteros> to c:\Project\java\Defteros> Done
-16 My calender incl birthday   TODO
+16 My calender incl birthday   Not do google agenda inplace
 17 My memo                     TODO
